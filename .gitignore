@@ -1,0 +1,21 @@
+# Configuration et préférences de l'éditeur (VS Code)
+.vscode/
+
+# Fichiers système et caches de système d'exploitation
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Caches et journaux d'erreurs (logs)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# En cas d'utilisation ultérieure de packages ou d'outils de build (Node.js/npm)
+node_modules/
+dist/
+build/
+.env
+.env.local
