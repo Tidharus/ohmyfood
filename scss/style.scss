@@ -1,3 +1,126 @@
-// body {
-//   background-color: red;
+
+@use "sass:map";        // pour map.get
+@use "sass:color";      // pour color.adjust
+// @use "variables" as *;  // charge _variables.scss ($colors et $fonts) pour aller chercher les variables dans un autre fichier 
+
+/******** VARIABLES : couleurs et polices **********/
+
+// Les couleurs
+$colors: (
+  "primary": #9356DC,
+  "green-light": #99E2D0,
+  "green-dark": #008766,
+  "blue-light": #89C8FA,
+  "blue-dark": #003A68,
+  "grey-infos": #EAEAEA,
+  "bg-infos":#F6F6F6
+);
+
+// Les polices (la 2e valeur est la police de secours)
+$fonts: (
+  "title": ("Shrikhand", cursive),
+  "text": ("Roboto", sans-serif)
+);
+
+
+/*********** :ROOT **************/
+:root {
+  // une variable CSS par couleur
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  // une variable CSS par police
+  @each $name, $value in $fonts {
+    --font-#{$name}: #{$value};
+  }
+}
+
+/*********** SITE *********************/
+* {
+  font-family: var(--font-text);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/************ HEADER ****************/
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    &__title {
+      font-size: 30px;
+      font-family: var(--font-title);
+
+}
+
+}
+
+// .header__title {
+//   font-size: 30px;
+//   font-family: var(--font-title);
 // }
+
+/****************LOCALISATION************/
+.localisation {
+  width: 100%;
+  min-height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background:var(--color-grey-infos);
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+    &__input {
+      border: none;
+      background:var(--color-grey-infos);
+      text-align: center;
+    }
+      &__input::placeholder {
+        color: #353535;
+        font-weight: 500;
+        font-size: 1rem; /*16px*/
+        
+      }
+    
+
+}
+
+// .localisation__input {
+//   border: none;
+//   background:var(--color-grey-infos);
+//   text-align: center;
+// }
+
+
+// .localisation__input::placeholder {
+//     color: #353535;
+//     font-weight: 500;
+//     font-size: 1rem; /*16px*/
+    
+// }
+
+.localisation__input {
+  outline: none;
+   
+}
+
+/************ UTILITAIRES ****************/
+.visually--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);   // anciens navigateurs
+  clip-path: inset(50%);            // navigateurs récents
+  white-space: nowrap;
+}
+
+/*******************MAIN******************/

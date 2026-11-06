@@ -1,1 +1,82 @@
-/*# sourceMappingURL=style.css.map */
+/******** VARIABLES : couleurs et polices **********/
+/*********** :ROOT **************/
+:root {
+  --color-primary: #9356DC;
+  --color-green-light: #99E2D0;
+  --color-green-dark: #008766;
+  --color-blue-light: #89C8FA;
+  --color-blue-dark: #003A68;
+  --color-grey-infos: #EAEAEA;
+  --color-bg-infos: #F6F6F6;
+  --font-title: Shrikhand, cursive;
+  --font-text: Roboto, sans-serif;
+}
+
+/*********** SITE *********************/
+* {
+  font-family: var(--font-text);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/************ HEADER ****************/
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__title {
+  font-size: 30px;
+  font-family: var(--font-title);
+}
+
+/****************LOCALISATION************/
+.localisation {
+  width: 100%;
+  min-height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-grey-infos);
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+}
+.localisation__input {
+  border: none;
+  background: var(--color-grey-infos);
+  text-align: center;
+}
+.localisation__input::-moz-placeholder {
+  color: #353535;
+  font-weight: 500;
+  font-size: 1rem; /*16px*/
+}
+.localisation__input::placeholder {
+  color: #353535;
+  font-weight: 500;
+  font-size: 1rem; /*16px*/
+}
+
+.localisation__input {
+  outline: none;
+}
+
+/************ UTILITAIRES ****************/
+.visually--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/*******************MAIN******************//*# sourceMappingURL=style.css.map */

@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
   <title>ohmyfood</title>
 </head>
 <body>
   <header class="header">
-    <img class="header__logo" src="images/logo/ohmyfood@2x.svg" alt="ohmyfood">
+    <h1 class="header__title">
+      ohmyfood
+    </h1>
+    <!-- <img class="header__logo" src="images/logo/ohmyfood@2x.svg" alt="ohmyfood"> -->
 
     <form class="localisation" role="search" method="get" action="#">
-      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-      <label for="search-input">Ville, lieu</label>
+      <i class="localisation__icon fa-solid fa-location-dot" aria-hidden="true"></i>
+      <label class="visually--hidden" for="search-input">Ville, lieu</label>
       <!-- a caché dans le css voir si lui donné une class -->
-       <input type="search" name="ville" id="search-input"
-       placeholder="Paris, Belleville" required>
+       <input class=localisation__input type="search" name="ville" id="search-input"
+       placeholder="Paris, Belleville" required autofocus>
     </form>
   </header>
   <main>
@@ -31,10 +34,12 @@
         <p class="hero__text">
           Découvrez des restaurants d'exception, sélectionnés par nos soins.
         </p>
-        
-        <a class="btn" href="#restaurants">
+        <div class="container">
+          <a class="btn" href="#restaurants">
           Explorer nos restaurants
         </a>
+        </div>
+        
       </div>
     </section>
 
