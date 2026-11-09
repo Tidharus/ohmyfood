@@ -19,7 +19,7 @@
 
     <form class="localisation" role="search" method="get" action="#">
       <i class="localisation__icon fa-solid fa-location-dot" aria-hidden="true"></i>
-      <label class="visually--hidden" for="search-input">Ville, lieu</label>
+      <label class="visually-hidden" for="search-input">Ville, lieu</label>
       <!-- a caché dans le css voir si lui donné une class -->
        <input class=localisation__input type="search" name="ville" id="search-input"
        placeholder="Paris, Belleville" required autofocus>
@@ -28,13 +28,13 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1 class="hero__title">
+        <h2 class="hero__title">
           Réservez le menu qui vous convient
-        </h1>
+        </h2>
         <p class="hero__text">
           Découvrez des restaurants d'exception, sélectionnés par nos soins.
         </p>
-        <div class="container">
+        <div class="container__btn">
           <a class="btn" href="#restaurants">
           Explorer nos restaurants
         </a>
@@ -48,15 +48,20 @@
         <h2 class="how-it-works__title">
           Fonctionnement
         </h2>
-        <button class="btn-infos">
-          Choisissez un restaurant
-        </button>
-        <button class="btn-infos">
-          Composez votre menu
-        </button>
-        <button class="btn-infos">
-          Dégustez au restaurant
-        </button>
+        <div class="container__btn">
+        
+        <div class="btn-infos">
+         
+        <a href="#"> <span class="how-it-works__number">1</span><i class=" how-it-works__icon fa-solid fa-mobile-screen-button" aria-hidden="true"></i>Choisissez un restaurant</a>
+        </div>
+        <div class="btn-infos">
+        <a href="#"><span class="how-it-works__number">2</span><i class="how-it-works__icon fa-solid fa-list" aria-hidden="true"></i>Composez votre menu</a>
+        </div>
+        <div class="btn-infos">
+        <a href="#"><span class="how-it-works__number">3</span><i class="how-it-works__icon fa-solid fa-store" aria-hidden="true"></i>Dégustez au restaurant</a>
+        </div>
+        </div>
+       
       </div>
     </section>
 
@@ -77,10 +82,10 @@
                     <p class="card__location">
                       Ménilmontant
                     </p>
-                    <div class="card__like">
-                      <!-- ajoutez icone coeur clicable -->
-                    </div>
                   </div>
+                    <div class="card__like">
+                      <i class="fa-solid fa-heart" aria-hidden="true" ></i>
+                    </div>
                 </div>
               </article>
             </a>
@@ -96,10 +101,10 @@
                     <p class="card__location">
                       Charone
                     </p>
-                    <div class="card__like">
-                      <!-- ajoutez icone coeur clicable -->
-                    </div>
                   </div>
+                    <div class="card__like">
+                      <i class="fa-solid fa-heart" aria-hidden="true" ></i>
+                    </div>
                 </div>
                 
               </article>
@@ -116,10 +121,10 @@
                     <p class="card__location">
                       Cité Rouge
                     </p>
-                    <div class="card__like">
-                      <!-- ajoutez icone coeur clicable -->
-                    </div>
                   </div>
+                    <div class="card__like">
+                      <i class="fa-solid fa-heart" aria-hidden="true" ></i>
+                    </div>
                 </div>
                 
                 </article>
@@ -136,10 +141,11 @@
                     <p class="card__location">
                       Folie-Méricourt
                     </p>
-                    <div class="card__like">
-                      <!-- ajoutez icone coeur clicable -->
-                    </div>
+                   
                   </div>
+                     <div class="card__like">
+                      <i class="fa-solid fa-heart" aria-hidden="true" ></i>
+                    </div>
                 </div>
               </article>
              </a>
@@ -149,7 +155,7 @@
     </section>
 
   </main>
-  <footer>
+  <footer class="footer">
     <div class="footer__infos">
       <h3 class="footer__title">
         ohmyfood
