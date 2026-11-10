@@ -45,8 +45,6 @@ $fonts: (
 
 body {
   margin: 0;
-  
- 
 }
 
 /************ HEADER ****************/
@@ -60,9 +58,7 @@ body {
     &__title {
       font-size: 30px;
       font-family: var(--font-title);
-
-}
-
+    }
 }
 
 /****************LOCALISATION************/
@@ -85,15 +81,11 @@ body {
         color: #353535;
         font-weight: 500;
         font-size: 1rem; /*16px*/
-        
-      }
-    
-
+      } 
 }
 
 .localisation__input {
   outline: none;
-   
 }
 
 /************ UTILITAIRES ****************/
@@ -112,10 +104,8 @@ body {
 /*******************MAIN******************/
 /***************SECTION HERO***************/
 main {
- 
   display: flex;
   flex-direction: column;
-
 }
 
 .hero {
@@ -124,9 +114,6 @@ main {
   display: flex;
   background: var(--color-bg-infos);
   padding: 2.4375rem 0 3.5625rem 0; /*39px*/ /*57px*/
- 
-  
-  
 }
 
 .container {
@@ -143,8 +130,6 @@ main {
   text-align: center;
   font-size: 24px;
   margin: 0;
-
- 
 }
 
 .hero__text {
@@ -154,13 +139,8 @@ main {
   color:#353535;
   font-weight: 300;
   padding-bottom: 1.6875rem;
-
-  
-
- 
- 
-
 }
+
 /****************BUTTON-EXPLORE********/
 .container__btn {
  
@@ -191,7 +171,7 @@ main {
 
   transition: filter 250ms ease-out, // filtre de suite
     box-shadow 250ms ease-out,//l ombre avec la couleur
- puis out de suite easy 
+ //puis out de suite easy 
      font-size 300ms ease-out 250ms, //lettres apres les deux ci dessus et ensuite apres en out 250ms
     transform 300ms ease-out 250ms; // aggrandissement en meme temps que le titre puis out en meme temps aussi 
 }
@@ -202,15 +182,12 @@ main {
   filter: brightness(1.15);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
   transform: scale(1.01);
- 
 }
 // /*******SECTION HOW-ITS-WORKS*************/
 .how-it-works {
   padding-top: 2rem; /*32px*/
   padding-bottom: 4.25rem; /*68px*/
   margin-bottom: 0;
- 
-
 }
 
 
@@ -250,11 +227,7 @@ main {
   font-weight: 500;
   color: #000000;                   // texte noir
   text-decoration: none;         // pas de soulignement
-   white-space: nowrap;
-  
-  
- 
- 
+  white-space: nowrap;
 }
 
 .how-it-works__number  {
@@ -284,8 +257,6 @@ main {
 //   transition-property: color;
 //  transition-duration: 40ms;
 //   transition-timing-function: ease-in-out;
-  
-
 }
 
 .btn-infos a:hover .how-it-works__icon {
@@ -299,15 +270,12 @@ main {
   padding-bottom: 66px;
   margin-top: 0;
   background: var(--color-grey-infos);
- 
 }
 
 .restaurants .container {
   display: flex;
   width: 100%;
   height: 100;
-
- 
 }
 
 .restaurants__cards a {
@@ -359,7 +327,6 @@ border-radius: 15px 15px 0 0;
   color:var(--color-green-dark);
   font-weight: 500;
   margin: 0;
-  
 }
 
 .restaurants__cards .card__content {
@@ -370,7 +337,6 @@ border-radius: 15px 15px 0 0;
   gap: 8px;
   height: 5.25rem;
   padding: 0 13px;
- 
 }
 
 .card__link {
@@ -380,14 +346,13 @@ border-radius: 15px 15px 0 0;
 
 /* 3. rend l'image cliquable */
 .card__link::after {
-  content: "";//fabrique physiquement un bloc fantôme (un pseudo-élément). S'il n'y a pas de content, le navigateur ne crée rien.
+  content: "";//fabrique physiquement un bloc fantôme (un pseudo-élément). S'il n'y a pas de content, le browser ne crée rien.
   position: absolute;//détache  bloc du texte pour le faire flotter au-dessus du reste du contenu.
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  //force ce bloc flottant à s'étirer en s'accrochant aux 4 coins de la carte (la fameuse boîte de confinement). Résultat : ce rectangle transparent recouvre l'image, le texte et l'espace vide. Puisqu'il appartient au lien, cliquer sur ce rectangle valide le lien. , puis card__like
- 
+  //force ce bloc flottant à s'étirer en s'accrochant aux 4 coins de la carte. Résultat :  rectangle transparent recouvre l'image, le texte et l'espace vide.  appartient au lien, clique sur ce rectangle valide le lien. , puis card__like  
 }
 
 /* 4. On sort le cœur de la couverture pour pouvoir cliquer dessus */
@@ -395,11 +360,10 @@ border-radius: 15px 15px 0 0;
   position: relative;
   z-index: 2; /* Passe au-dessus du ::after */
   cursor: pointer;//; devient une main de curseur 
-  font-size: 1.5rem; /* Ajustez la taille si besoin */
+  font-size: 1.5rem; /* Ajuste la taille si besoin */
   color: white;
   -webkit-text-stroke: 1px black;
-//position: relative et  z-index: 2; prendle  cœur et le bouge sur un calque supérieur (au-dessus du lien invisible). Le cœur redevient accessible à la souris, indépendamment du lien de la carte.
-
+//position: relative et  z-index: 2; prendle  cœur et le bouge sur un calque supérieur au-dessus du lien qui doit etre invisible. Le heart devient accessible au clic, indépendamment du lien de la carte.
 }
 
 .restaurants__cards .card__title {
@@ -411,7 +375,7 @@ border-radius: 15px 15px 0 0;
 
 .restaurants__cards .card__location {
   margin: 0;                 // plus de marge au-dessus du lieu
-  // margin-top: 2px;           // un tout petit espace, si tu veux (sinon supprime cette ligne)
+  // margin-top: 2px;           // petit espace a voir 
   font-size: 1.0625rem;  /*17px*/
   color: #353535;
   font-weight: 300;
@@ -437,14 +401,12 @@ border-radius: 15px 15px 0 0;
     flex-direction: column;
     gap: 1rem; /*16px*/
 }
+
 .footer__content,
-.footer__content a 
- {
- 
-  
+.footer__content a {
   color: white;
-    
 }
+
 .footer__title {
   font-size: 1.125rem; /*18px*/
   font-family: var(--font-title);
@@ -461,7 +423,6 @@ ul {
   flex-direction: column;
   gap: 0.4375rem; /*7px*/
   list-style: none;
- 
 }
 .footer__content a {
   text-decoration: none;
