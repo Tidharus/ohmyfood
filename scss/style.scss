@@ -13,7 +13,8 @@ $colors: (
   "blue-light": #89C8FA,
   "blue-dark": #003A68,
   "grey-infos": #EAEAEA,
-  "bg-infos":#F6F6F6
+  "bg-infos":#F6F6F6,
+  "footer-grey": #353535
 );
 
 // Les polices (la 2e valeur est la police de secours)
@@ -51,6 +52,7 @@ body {
 /************ HEADER ****************/
 .header {
   width: 100%;
+  min-height: 8.125rem; /*130px*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +68,7 @@ body {
 /****************LOCALISATION************/
 .localisation {
   width: 100%;
-  min-height: 3.125rem;
+  min-height: 3.125rem; /*50px*/
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -113,13 +115,15 @@ main {
  
   display: flex;
   flex-direction: column;
-  gap: 30px;
+
 }
 
 .hero {
   width: 100%;
+  min-height: 17.9375rem;/*287px*/
   display: flex;
   background: var(--color-bg-infos);
+  padding: 2.4375rem 0 3.5625rem 0; /*39px*/ /*57px*/
  
   
   
@@ -131,26 +135,26 @@ main {
   display: flex;
   flex-direction: column;
   padding: 0 1.25rem;
-  
- 
- 
 }
 
 
  .hero__title {
-  min-width: 17.19rem; /*275px*/ 
+  // min-width: 17.19rem; /*275px*/ 
   text-align: center;
   font-size: 24px;
+  margin: 0;
 
  
 }
 
 .hero__text {
-   min-width: 19.69rem; 
+  //  min-width: 19.69rem; 
   text-align: center;
   font-size: 18px;
   color:#353535;
   font-weight: 300;
+  padding-bottom: 1.6875rem;
+
   
 
  
@@ -165,25 +169,49 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 1.75rem; /*28px*/
- 
-  
+  margin: 0;
 }
 
 .container__btn .btn {
+  font-size: 16px;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 218px;
   min-height: 50px;
-  background:linear-gradient(#ff79da, var(--color-primary));
+  background:linear-gradient(rgb(255, 121, 218), var(--color-primary));
   color: #ffffff;
   border-radius: 25px;
-  
- 
+  text-decoration: none;
+  // transition: transform 400ms ease-in-out;
+  // transition-property: transform;
+  // transition-duration: 500ms;
+  // transition-delay:50ms, 250ms;
+
+  transition: filter 250ms ease-out, // filtre de suite
+    box-shadow 250ms ease-out,//l ombre avec la couleur
+ puis out de suite easy 
+     font-size 300ms ease-out 250ms, //lettres apres les deux ci dessus et ensuite apres en out 250ms
+    transform 300ms ease-out 250ms; // aggrandissement en meme temps que le titre puis out en meme temps aussi 
 }
 
-/*******SECTION HOW-ITS-WORKS*************/
+.container__btn .btn:hover {
+  // background:rgb(237, 129, 209);
+  font-size: 16.18px;
+  filter: brightness(1.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  transform: scale(1.01);
+ 
+}
+// /*******SECTION HOW-ITS-WORKS*************/
+.how-it-works {
+  padding-top: 2rem; /*32px*/
+  padding-bottom: 4.25rem; /*68px*/
+  margin-bottom: 0;
+ 
 
+}
 
 
 .btn-infos{
@@ -213,8 +241,8 @@ main {
   align-items: center;
   gap: 1rem;                     // espace entre les icônes et le texte
                   // il remplit toute la largeur de la div
-  min-height: 72px;
-  padding: 0 1.25rem;
+  min-height: 4.5rem;
+  padding: 0 1.25em;
   background-color: var(--color-bg-infos);
   border-radius: 20px;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
@@ -234,7 +262,7 @@ main {
   // left: -12px;
   // top: 30px;
   left: 0;
-  top: 30%;
+  top: 20%;
   transform: translate(-50%, 50%);
   display: flex;
   justify-content: center;
@@ -253,14 +281,23 @@ main {
 .how-it-works__icon {
   color: #7e7e7e;
   font-size: 1.25rem; /*20px*/
-  
+//   transition-property: color;
+//  transition-duration: 40ms;
+//   transition-timing-function: ease-in-out;
   
 
 }
 
+.btn-infos a:hover .how-it-works__icon {
+  color: var(--color-primary);
+}
+
+
 /******************RESTAURANTS*************/
 .restaurants {
-
+  padding-top: 20px;
+  padding-bottom: 66px;
+  margin-top: 0;
   background: var(--color-grey-infos);
  
 }
@@ -269,6 +306,8 @@ main {
   display: flex;
   width: 100%;
   height: 100;
+
+ 
 }
 
 .restaurants__cards a {
@@ -284,6 +323,7 @@ main {
 }
 
 .restaurants__cards .card {
+  position:relative; // transforme la carte en cage, dit tout element enfant avec une position absolue devra rester bloqué à l interieur de ces limites, oubliez cette ligne, le lien invisible  plus bas va s'échapper et s'étirer jusqu'aux limites de votre page web entière. puis voir card__link
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -303,6 +343,25 @@ object-fit: cover;
 border-radius: 15px 15px 0 0;
 }
 
+.badge {
+  position: absolute;
+  padding: 0.4375rem 0.5625rem; /*7px*/ /*9px*/
+  border-radius: 2px;
+  top: 16px;
+  right: 11px;
+  background-color: var(--color-green-light);
+  width: 5rem; /*80px*/
+  height: 1.8125rem; /*29px*/
+}
+
+.badge__title {
+  font-size: 0.875em;
+  color:var(--color-green-dark);
+  font-weight: 500;
+  margin: 0;
+  
+}
+
 .restaurants__cards .card__content {
   width: 100%;
   display: flex;
@@ -311,24 +370,99 @@ border-radius: 15px 15px 0 0;
   gap: 8px;
   height: 5.25rem;
   padding: 0 13px;
-  padding-bottom: 25px; 
+ 
+}
+
+.card__link {
+  text-decoration: none;//supprime le soulignement des liens
+  color: inherit; //tac le lien de garder la couleur du parent et pas prendre les couleurs de liens , puis card__link::after
+}
+
+/* 3. rend l'image cliquable */
+.card__link::after {
+  content: "";//fabrique physiquement un bloc fantôme (un pseudo-élément). S'il n'y a pas de content, le navigateur ne crée rien.
+  position: absolute;//détache  bloc du texte pour le faire flotter au-dessus du reste du contenu.
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //force ce bloc flottant à s'étirer en s'accrochant aux 4 coins de la carte (la fameuse boîte de confinement). Résultat : ce rectangle transparent recouvre l'image, le texte et l'espace vide. Puisqu'il appartient au lien, cliquer sur ce rectangle valide le lien. , puis card__like
+ 
+}
+
+/* 4. On sort le cœur de la couverture pour pouvoir cliquer dessus */
+.card__like {
+  position: relative;
+  z-index: 2; /* Passe au-dessus du ::after */
+  cursor: pointer;//; devient une main de curseur 
+  font-size: 1.5rem; /* Ajustez la taille si besoin */
+  color: white;
+  -webkit-text-stroke: 1px black;
+//position: relative et  z-index: 2; prendle  cœur et le bouge sur un calque supérieur (au-dessus du lien invisible). Le cœur redevient accessible à la souris, indépendamment du lien de la carte.
+
 }
 
 .restaurants__cards .card__title {
-  margin-bottom: 0;
+  margin: 0;
+  //  margin-top: 2px;   
   font-size: 1.125rem; /*18px*/
   font-weight: 700;
 }
 
 .restaurants__cards .card__location {
-  margin: 0;                 // ✅ plus de marge au-dessus du lieu
+  margin: 0;                 // plus de marge au-dessus du lieu
   // margin-top: 2px;           // un tout petit espace, si tu veux (sinon supprime cette ligne)
   font-size: 1.0625rem;  /*17px*/
   color: #353535;
   font-weight: 300;
 }
 
-.card__like {
+// .card__like {
+//   color: white;
+//   -webkit-text-stroke: 1px black;
+// }
+
+
+
+/***************Footer****************************/
+.footer {
+   display: flex;
+  background-color: var(--color-footer-grey);
+  padding: 22px 25px;
+}
+
+
+.footer__content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /*16px*/
+}
+.footer__content,
+.footer__content a 
+ {
+ 
+  
   color: white;
-  -webkit-text-stroke: 1px black;
+    
+}
+.footer__title {
+  font-size: 1.125rem; /*18px*/
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+}
+
+.footer__title,
+ul {
+  margin: 0;
+}
+
+.footer__content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4375rem; /*7px*/
+  list-style: none;
+ 
+}
+.footer__content a {
+  text-decoration: none;
 }

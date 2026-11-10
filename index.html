@@ -71,14 +71,20 @@
           Restaurants
         </h2>
           <div class="restaurants__cards">
-            <a class="card__link" href="restaurants/la-palette-du-gout.html" rel="noopener">
+            <!-- <a class="card__link" href="restaurants/la-palette-du-gout.html" rel="noopener"> -->
               <article class="card">
+                <div class="badge">
+                  <p class="badge__title">
+                    Nouveau
+                  </p>
+                </div>
                 <img class="card__image" src="images/restaurant/la_palette_du_gout.jpg" alt="la palette du goût">
                 <div class="card__content">
                   <div class="card__txt">
-                    <h3 class="card__title">
+                      <h3 class="card__title"><a class="card__link" href="restaurants/la-palette-du-gout.html" rel="noopener">La palette du goût</a></h3>
+                    <!-- <h3 class="card__title">
                       La palette du goût
-                    </h3>
+                    </h3> -->
                     <p class="card__location">
                       Ménilmontant
                     </p>
@@ -88,16 +94,23 @@
                     </div>
                 </div>
               </article>
-            </a>
+            <!-- </a> -->
 
-             <a class="card__link" href="restaurants/la-note-enchantee.html">
+             <!-- <a class="card__link" href="restaurants/la-note-enchantee.html"> -->
                <article class="card">
+                 <!-- mettre nouveau sur l image en badge-->
+                    <div class="badge">
+                  <p class="badge__title">
+                    Nouveau
+                  </p>
+                </div>
                 <img class="card__image" src="images/restaurant/la_note_enchantee.jpg" alt="la note enchantée">
                 <div class="card__content">
                   <div class="card__txt">
-                    <h3 class="card__title">
+                     <h3 class="card__title"><a class="card__link" href="restaurants/la-note-enchantee.html"> La note enchantée</a></h3>
+                    <!-- <h3 class="card__title">
                       La note enchantée
-                    </h3>
+                    </h3> -->
                     <p class="card__location">
                       Charone
                     </p>
@@ -108,16 +121,17 @@
                 </div>
                 
               </article>
-             </a>
+             <!-- </a> -->
 
-             <a class="card__link" href="restaurants/a-la-francaise.html">
+             <!-- <a class="card__link" href="restaurants/a-la-francaise.html"> -->
                <article class="card">
                 <img class="card__image" src="images/restaurant/a_la_francaise.jpg" alt="À la française">
                 <div class="card__content">
                   <div class="card__txt">
-                    <h3 class="card__title">
+                    <h3 class="card__title"><a class="card__link" href="restaurants/a-la-francaise.html">À la française</a></h3>
+                    <!-- <h3 class="card__title">
                       À la française
-                    </h3>
+                    </h3> -->
                     <p class="card__location">
                       Cité Rouge
                     </p>
@@ -128,16 +142,17 @@
                 </div>
                 
                 </article>
-             </a>
+             <!-- </a> -->
 
-             <a class="card__link" href="restaurants/le-delice-des-sens.html">
+             <!-- <a class="card__link" href="restaurants/le-delice-des-sens.html"> -->
                <article class="card">
                 <img class="card__image" src="images/restaurant/delice_des_sens.jpg" alt="le délice des sens">
                  <div class="card__content">
                   <div class="card__txt">
-                    <h3 class="card__title">
+                    <h3 class="card__title"><a class="card__link" href="restaurants/le-delice-des-sens.html">le délice des sens</a></h3>
+                    <!-- <h3 class="card__title">
                       le délice des sens
-                    </h3>
+                    </h3> -->
                     <p class="card__location">
                       Folie-Méricourt
                     </p>
@@ -148,7 +163,7 @@
                     </div>
                 </div>
               </article>
-             </a>
+             <!-- </a> -->
           </div>
       </div>
 
@@ -156,14 +171,17 @@
 
   </main>
   <footer class="footer">
-    <div class="footer__infos">
+    <div class="footer__content">
       <h3 class="footer__title">
         ohmyfood
       </h3>
       <!-- ajouter les icones a proposez et devenir -->
       <ul>
-        <li><a href="#">Proposer un restaurant</a></li>
         <li>
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+          <a href="#">Proposer un restaurant</a></li>
+        <li>
+          <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
           <a href="#">Devenir partenaire</a>
         </li>
         <li>
