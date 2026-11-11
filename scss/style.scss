@@ -394,7 +394,7 @@ border-radius: 15px 15px 0 0;
   //force ce bloc flottant à s'étirer en s'accrochant aux 4 coins de la carte. Résultat :  rectangle transparent recouvre l'image, le texte et l'espace vide.  appartient au lien, clique sur ce rectangle valide le lien. , puis card__like  
 }
 
-/* 4. On sort le cœur de la couverture pour pouvoir cliquer dessus */
+/* 4. sort le coeur de la couverture pour pouvoir cliquer dessus */
 .card__like {
   position: relative;
   z-index: 2; /* Passe au-dessus du ::after */
@@ -402,7 +402,7 @@ border-radius: 15px 15px 0 0;
   font-size: 1.5rem; /* Ajuste la taille si besoin */
   color: white;
   -webkit-text-stroke: 1px black;
-//position: relative et  z-index: 2; prendle  cœur et le bouge sur un calque supérieur au-dessus du lien qui doit etre invisible. Le heart devient accessible au clic, indépendamment du lien de la carte.
+//position: relative et  z-index: 2; prendle  coeur et le bouge sur un calque supérieur au-dessus du lien qui doit etre invisible. Le heart devient accessible au clic, indépendamment du lien de la carte.
 }
 
 .restaurants__cards .card__title {
