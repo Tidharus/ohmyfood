@@ -330,7 +330,7 @@ main {
 }
 
 .restaurants__cards .card {
-  position:relative; // transforme la carte en cage, dit tout element enfant avec une position absolue devra rester bloqué à l interieur de ces limites, oublie cette ligne, un lien invisible  plus bas va s'échapper et s'étirer jusqu'aux limites de la page web entière. puis voir card__link
+  position:relative; // transforme la carte en cage, dit tout element enfant avec une position absolue devra rester bloqué à l interieur de ces limites, un lien invisible  plus bas va s'échapper et s'étirer jusqu'aux limites de la page web entière. puis voir card__link
   display: flex;
   flex-direction: column;
   width: 100%;
