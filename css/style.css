@@ -24,7 +24,7 @@ body {
   margin: 0;
 }
 
-/************ HEADER ****************/
+/************ACCUEIL- HEADER *************/
 .header {
   width: 100%;
   min-height: 8.125rem; /*130px*/
@@ -35,9 +35,24 @@ body {
 .header__title {
   font-size: 30px;
   font-family: var(--font-title);
+  color: #101010;
 }
 
-/****************LOCALISATION************/
+/********HEADER PAGE RESTAURANT**********/
+.header .header__restaurants {
+  position: relative;
+}
+
+.header__return {
+  position: absolute;
+  top: 29px;
+  left: 31px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #353535;
+}
+
+/************ACCUEIL-LOCALISATION*******/
 .localisation {
   width: 100%;
   min-height: 3.125rem; /*50px*/
@@ -50,9 +65,12 @@ body {
   border-bottom: 2px solid grey;
 }
 .localisation__input {
-  border: none;
+  border: 1px transparent;
   background: var(--color-grey-infos);
   text-align: center;
+  box-shadow: 0 0px 5px 9px rgba(214, 213, 213, 0.2);
+  padding: 0.5rem 1rem; /*8px*/ /*16px*/
+  border-radius: 25px;
 }
 .localisation__input::-moz-placeholder {
   color: #353535;
@@ -82,7 +100,7 @@ body {
 }
 
 /*******************MAIN******************/
-/***************SECTION HERO***************/
+/**********MAIN SECTION HERO***************/
 main {
   display: flex;
   flex-direction: column;
@@ -104,6 +122,19 @@ main {
   padding: 0 1.25rem;
 }
 
+/***********RESTAURANTS PAGES*************/
+/*********RESTAURANT TITLE****************/
+.menu__title {
+  font-family: var(--font-title);
+  font-size: 28px;
+}
+
+.menu__subtitle {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/**********ACCUEIL-MAIN******************/
 .hero__title {
   text-align: center;
   font-size: 24px;
@@ -128,7 +159,10 @@ main {
   margin: 0;
 }
 
+/*le bouton : qui grandit ****/
 .container__btn .btn {
+  position: relative;
+  z-index: 1;
   font-size: 16px;
   font-weight: 500;
   display: flex;
@@ -140,14 +174,42 @@ main {
   color: #ffffff;
   border-radius: 25px;
   text-decoration: none;
-  transition: filter 250ms ease-out, box-shadow 250ms ease-out, font-size 300ms ease-out 250ms, transform 300ms ease-out 250ms;
+  box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.25);
+  transition-property: transform;
+  transition-property: font-size;
+  transition-property: transform, font-size, box-shadow;
+  transition-duration: 300ms, 200ms, 250ms;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+  transition-delay: 250ms, 550ms, 0ms;
 }
 
+/* Le voile blanc : étape 1 (il éclaircit le bouton) */
+.container__btn .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  background: #ffffff;
+  opacity: 0;
+  z-index: -1;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0ms;
+}
+
+/* Au survol */
 .container__btn .btn:hover {
-  font-size: 16.18px;
-  filter: brightness(1.15);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
   transform: scale(1.01);
+  font-size: 16.2px;
+  box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.3);
+}
+
+.container__btn .btn:hover::after {
+  opacity: 0.15;
 }
 
 .how-it-works {
@@ -189,7 +251,7 @@ main {
   background: var(--color-primary);
   color: white;
   border-radius: 50%;
-  font-size: 0.6rem;
+  font-size: 14.18px;
   height: 1.5rem; /*24px*/
   width: 1.5rem; /*24*/
   flex-shrink: 0;
@@ -319,13 +381,13 @@ main {
 .footer {
   display: flex;
   background-color: var(--color-footer-grey);
-  padding: 22px 25px;
 }
 
 .footer__content {
   display: flex;
   flex-direction: column;
   gap: 1rem; /*16px*/
+  padding: 22px 25px;
 }
 
 .footer__content,
@@ -342,6 +404,7 @@ main {
 .footer__title,
 ul {
   margin: 0;
+  padding: 0;
 }
 
 .footer__content ul {

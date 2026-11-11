@@ -47,7 +47,8 @@ body {
   margin: 0;
 }
 
-/************ HEADER ****************/
+/************ACCUEIL- HEADER *************/
+
 .header {
   width: 100%;
   min-height: 8.125rem; /*130px*/
@@ -58,10 +59,26 @@ body {
     &__title {
       font-size: 30px;
       font-family: var(--font-title);
+      color:#101010
     }
 }
 
-/****************LOCALISATION************/
+/********HEADER PAGE RESTAURANT**********/
+
+.header .header__restaurants {
+  position: relative;
+}
+
+.header__return {
+  position: absolute; 
+  top: 29px;   
+  left: 31px; 
+  font-size: 1.50rem;  
+  text-decoration: none; 
+  color: #353535;       
+}
+
+/************ACCUEIL-LOCALISATION*******/
 .localisation {
   width: 100%;
   min-height: 3.125rem; /*50px*/
@@ -73,9 +90,12 @@ body {
   border-top: 2px solid grey;
   border-bottom: 2px solid grey;
     &__input {
-      border: none;
+      border: 1px transparent;
       background:var(--color-grey-infos);
       text-align: center;
+       box-shadow: 0 0px 5px 9px rgba(214, 213, 213, 0.20);
+      padding: .5rem 1rem; /*8px*/ /*16px*/
+      border-radius: 25px;       
     }
       &__input::placeholder {
         color: #353535;
@@ -102,7 +122,7 @@ body {
 }
 
 /*******************MAIN******************/
-/***************SECTION HERO***************/
+/**********MAIN SECTION HERO***************/
 main {
   display: flex;
   flex-direction: column;
@@ -123,8 +143,21 @@ main {
   flex-direction: column;
   padding: 0 1.25rem;
 }
+/***********RESTAURANTS PAGES*************/
 
+/*********RESTAURANT TITLE****************/
+.menu__title {
+  font-family:var(--font-title);
+  font-size: 28px;
+}
 
+.menu__subtitle {
+  font-size: 16px;
+  font-weight: 300;
+
+}
+
+/**********ACCUEIL-MAIN******************/
  .hero__title {
   // min-width: 17.19rem; /*275px*/ 
   text-align: center;
@@ -143,7 +176,6 @@ main {
 
 /****************BUTTON-EXPLORE********/
 .container__btn {
- 
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -152,7 +184,10 @@ main {
   margin: 0;
 }
 
+/*le bouton : qui grandit ****/
 .container__btn .btn {
+  position: relative;
+  z-index: 1;
   font-size: 16px;
   font-weight: 500;
   display: flex;
@@ -164,24 +199,46 @@ main {
   color: #ffffff;
   border-radius: 25px;
   text-decoration: none;
-  // transition: transform 400ms ease-in-out;
-  // transition-property: transform;
-  // transition-duration: 500ms;
-  // transition-delay:50ms, 250ms;
+  box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.25);
+  transition-property: transform;
+  transition-property: font-size;
 
-  transition: filter 250ms ease-out, // filtre de suite
-    box-shadow 250ms ease-out,//l ombre avec la couleur
- //puis out de suite easy 
-     font-size 300ms ease-out 250ms, //lettres apres les deux ci dessus et ensuite apres en out 250ms
-    transform 300ms ease-out 250ms; // aggrandissement en meme temps que le titre puis out en meme temps aussi 
+   transition-property: transform, font-size, box-shadow;  // QUOI : la taille du bouton, puis du texte
+  transition-duration: 300ms, 200ms, 250ms;// COMBIEN DE TEMPS : 300ms pour le bouton, 200ms pour le texte, 250ms pour le box-shadow
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out; // COMMENT : doux au début et à la fin
+  transition-delay: 250ms, 550ms, 0ms; 
+  // le box shadow change tout de suite avec le voile puis le button grandit, puis le texte
 }
 
+/* Le voile blanc : étape 1 (il éclaircit le bouton) */
+.container__btn .btn::after {
+  content: "";     // sinon le pseudo-élément n'existe pas + crée la couche vide sans rien
+  position: absolute;// sort pour placer le vide sur le button crée
+  top: 0; //en haut sur le button le vide crée avec content:""
+  right: 0;// a droite sur le button le vide crée avec content:""
+  bottom: 0;//en bas sur le button le vide crée avec content:""
+  left: 0;  //  a gauche sur le button le vide crée avec content:""      // recouvre tout le bouton (= inset: 0) 
+  //inset peut remplacer : top, right , bottom et left 
+  border-radius: inherit;// mêmes arrondis que le bouton
+  background: #ffffff; // voile blanc
+  opacity: 0;            // invisible/transparent au repos
+  z-index: -1;          // passe sous le texte, au-dessus du dégradé
+  transition-property: opacity;// QUOI : la transparence du voile
+  transition-duration: 250ms;   // COMBIEN DE TEMPS
+  transition-timing-function: ease-in-out; // doux début et fin
+  transition-delay: 0ms;// QUAND : tout de suite
+}
+
+/* Au survol */
 .container__btn .btn:hover {
-  // background:rgb(237, 129, 209);
-  font-size: 16.18px;
-  filter: brightness(1.15);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
-  transform: scale(1.01);
+  transform: scale(1.01); //le bouton grandit, après le voile
+  font-size: 16.2px; //le texte grandit, après le bouton
+  box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.30);
+}
+
+.container__btn .btn:hover::after {
+  opacity: 0.15;  
+ 
 }
 // /*******SECTION HOW-ITS-WORKS*************/
 .how-it-works {
@@ -192,24 +249,8 @@ main {
 
 
 .btn-infos{
-  // display: flex;
-  //  justify-content: center;
-  // //  flex-direction: column;
-  // align-items: center;
   width: 100%;
-  // min-width: 335px;
-  // min-height: 72.38px;
-  // background-color: var(--color-bg-infos);
-  // border-radius: 20px;
-  // box-shadow: 0 4px 15px 0 rgba(0, 0,0, 0.15);
-  // font-size: 1em; /*16px*/
-  // color: #000000;
-  // font-weight: 500;
-   padding-left: 20px;
-   
-  
-
-
+  padding-left: 20px;  
 }
 
 .btn-infos a {
@@ -243,14 +284,12 @@ main {
   background: var(--color-primary);
   color:white;
   border-radius: 50%;
-  font-size: 0.6rem;
+  font-size: 14.18px;
   height: 1.50rem; /*24px*/
   width: 1.50rem; /*24*/
   flex-shrink: 0;
 }
 
-
- 
 .how-it-works__icon {
   color: #7e7e7e;
   font-size: 1.25rem; /*20px*/
@@ -392,7 +431,7 @@ border-radius: 15px 15px 0 0;
 .footer {
    display: flex;
   background-color: var(--color-footer-grey);
-  padding: 22px 25px;
+  
 }
 
 
@@ -400,6 +439,9 @@ border-radius: 15px 15px 0 0;
     display: flex;
     flex-direction: column;
     gap: 1rem; /*16px*/
+    padding: 22px 25px;
+   
+    
 }
 
 .footer__content,
@@ -416,6 +458,7 @@ border-radius: 15px 15px 0 0;
 .footer__title,
 ul {
   margin: 0;
+  padding: 0;
 }
 
 .footer__content ul {

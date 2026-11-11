@@ -15,19 +15,15 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header header__restaurants">
     <nav>
-      <!-- icone fleche retour clicable a jouter -->
-      <!-- <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> -->
-      <ul>
-        <li><a href="../index.html">
-            Accueil
-            <img class="header__logo" src="../images/logo/ohmyfood@2x.svg" alt="ohmyfood"></a>
-      </ul>
-
+      <a class="header__return" href="../index.html">
+          <i class="fa-solid fa-arrow-left"  aria-hidden="true"></i>
+      </a>
     </nav>
-
-
+    <h1 class="header__title">
+      ohmyfood
+    </h1>
   </header>
   <main>
     <img class="banner" src="../images/restaurant/la_palette_du_gout.jpg" alt="La palette du goût">
@@ -39,7 +35,11 @@
             La palette du goût
           </h1>
           <!-- icone coeur clicable ajouter sur la droite quand on choisie le plat  -->
+          <div class="card__like">
+            <i class="fa-solid fa-heart" aria-hidden="true" ></i>
+          </div>
         </div>
+       
         <section class="menu__starter">
           <h2 class="menu__subtitle">ENTRÉES</h2>
           <!-- trait bleu sous le titre -->
@@ -238,15 +238,18 @@
 
 
   </main>
-  <footer>
-    <div class="footer__infos">
+   <footer class="footer">
+    <div class="footer__content">
       <h3 class="footer__title">
         ohmyfood
       </h3>
       <!-- ajouter les icones a proposez et devenir -->
       <ul>
-        <li><a href="#">Proposer un restaurant</a></li>
         <li>
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+          <a href="#">Proposer un restaurant</a></li>
+        <li>
+          <i class="fa-solid fa-handshake-angle" aria-hidden="true"></i>
           <a href="#">Devenir partenaire</a>
         </li>
         <li>
