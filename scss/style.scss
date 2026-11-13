@@ -166,25 +166,86 @@ main {
   padding: 0 1.25rem;
 }
 /***********RESTAURANTS PAGES*************/
+.banner {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
 
+}
 
-/*********RESTAURANT TITLE****************/
+/*********RESTAURANT****************/
+.menu{
+  display: flex;
+  background-color:grey ;
+  width: 100%;
+  margin:0;
+  padding-top: 32px;
+  border-radius: 35px;
+ 
+}
+.menu .container {
+  display:flex;
+   width:100%;
+  display: flex;
+  gap: 2.5rem; /*40px*/
+  padding: 0 13px;
+  
+}
 .menu__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // padding-bottom: 20px;
+  margin: 0;
+
 }
 
-.menu__title {
+
+ .menu__title {
   font-family:var(--font-title);
   font-size: 28px;
+  margin: 0;
+
 }
 
 .menu__subtitle {
   font-size: 16px;
   font-weight: 300;
+  padding-top: 0;
+  margin-top: 0;
+ 
+}
+
+
+.menu .menu__starter,
+.menu .menu__main-course,
+.menu .menu__dessert {
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+ .menu .card__content {
+  
+  display: flex;
+  min-height: 69px;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13.5px 47px 13.5px 15px;
+  margin: 0;
+  border-radius: 15.04px;
+}
+
+// .menu .card__content .card__txt .card__title,
+.menu .card__content .card__txt .card__subtitle
+{
+
 
 }
+
 
 /**********ACCUEIL-MAIN******************/
  .hero__title {
