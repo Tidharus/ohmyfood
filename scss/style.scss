@@ -55,11 +55,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+    &__container--title {
+      box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.15);
+    }
+
+
     &__title {
       font-size: 30px;
       font-family: var(--font-title);
-      color:#101010
+      color:#101010;
+     
     }
 }
 
@@ -80,6 +85,8 @@ body {
 
 /************ACCUEIL-LOCALISATION*******/
 .localisation {
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 3.125rem; /*50px*/
   display: flex;
@@ -87,8 +94,10 @@ body {
   justify-content: center;
   align-items: center;
   background:var(--color-grey-infos);
-  border-top: 2px solid grey;
-  border-bottom: 2px solid grey;
+  box-shadow:
+     inset 0 4px 4px -2px rgba(0, 0, 0, 0.15),   // EN HAUT : à l'intérieur, foncé en haut → clair en descendant
+    0 4px 4px 0px rgba(0, 0, 0, 0.15);         // EN BAS : à l'extérieur, foncé sous la barre → clair en descendant
+
     &__input {
       border: 1px transparent;
       background:var(--color-grey-infos);
