@@ -141,11 +141,11 @@ main {
 /*********RESTAURANT****************/
 .menu {
   display: flex;
-  background-color: grey;
+  background-color: var(--color- "bg-infos");
   width: 100%;
   margin: 0;
   padding-top: 32px;
-  border-radius: 35px;
+  border-radius: 35px 35px 0 0;
 }
 
 .menu .container {
@@ -193,6 +193,12 @@ main {
   padding: 13.5px 47px 13.5px 15px;
   margin: 0;
   border-radius: 15.04px;
+  box-shadow: 0 4.01px 15.04px rgba(0, 0, 0, 0.1);
+}
+
+.menu .container__btn {
+  padding: 0 0 20px 0;
+  cursor: pointer;
 }
 
 /**********ACCUEIL-MAIN******************/
