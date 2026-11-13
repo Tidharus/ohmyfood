@@ -166,6 +166,12 @@ main {
 /***********RESTAURANTS PAGES*************/
 
 /*********RESTAURANT TITLE****************/
+.menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .menu__title {
   font-family:var(--font-title);
   font-size: 28px;
