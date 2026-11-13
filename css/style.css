@@ -354,7 +354,7 @@ main {
   left: 0;
 }
 
-/* 4. On sort le cœur de la couverture pour pouvoir cliquer dessus */
+/* 4. sort le coeur de la couverture pour pouvoir cliquer dessus */
 .card__like {
   position: relative;
   z-index: 2; /* Passe au-dessus du ::after */
@@ -375,6 +375,22 @@ main {
   font-size: 1.0625rem; /*17px*/
   color: #353535;
   font-weight: 300;
+}
+
+/* Case pas cochée : le coeur est blanc avec un contour noir */
+.card__like-icon {
+  color: white;
+  -webkit-text-stroke: 1px black;
+  cursor: pointer;
+}
+
+/*Coeur coché : le coeur prend la couleur */
+.card__like-input:checked + .card__like-icon {
+  background: linear-gradient(var(--color-primary), rgb(255, 121, 218));
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0;
 }
 
 /***************Footer****************************/
