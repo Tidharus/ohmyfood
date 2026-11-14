@@ -52,8 +52,8 @@ body {
 
 .header__return {
   position: absolute;
-  top: 19px;
-  left: 31px;
+  top: 23px;
+  left: 20px;
   font-size: 1.07rem;
   text-decoration: none;
   color: #353535;
@@ -141,7 +141,7 @@ main {
 /*********RESTAURANT****************/
 .menu {
   display: flex;
-  background-color: var(--color- "bg-infos");
+  background-color: var(--color-bg-infos);
   width: 100%;
   margin: 0;
   padding-top: 32px;
@@ -170,30 +170,73 @@ main {
 }
 
 .menu__subtitle {
+  width: -moz-fit-content;
+  width: fit-content;
   font-size: 16px;
   font-weight: 300;
   padding-top: 0;
   margin-top: 0;
 }
 
+.menu__subtitle::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 2px;
+  margin-top: 4px;
+  background: var(--color-green-light);
+}
+
 .menu .menu__starter,
 .menu .menu__main-course,
 .menu .menu__dessert {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+.menu .card {
+  display: flex;
+  flex-direction: column;
+}
+
 .menu .card__content {
+  width: 100%;
   display: flex;
   min-height: 69px;
   background-color: white;
   align-items: center;
   justify-content: space-between;
-  padding: 13.5px 47px 13.5px 15px;
+  padding: 3.5px 8px 3.5px 8px;
   margin: 0;
   border-radius: 15.04px;
   box-shadow: 0 4.01px 15.04px rgba(0, 0, 0, 0.1);
+}
+
+.menu .card__txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.menu .card__title,
+.menu .card__subtitle {
+  margin: 0;
+}
+
+.menu .card__title {
+  font-size: 18px;
+}
+
+.menu .card__subtitle {
+  font-size: 15px;
+}
+
+.menu .card__price {
+  flex-shrink: 0;
 }
 
 .menu .container__btn {
@@ -297,7 +340,7 @@ main {
   gap: 1rem;
   min-height: 4.5rem;
   padding: 0 1.25em;
-  background-color: var(--color- "bg-infos");
+  background-color: var(--color-bg-infos);
   border-radius: 20px;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   font-size: 1rem;

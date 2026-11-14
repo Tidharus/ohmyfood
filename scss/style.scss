@@ -87,8 +87,8 @@ body {
 
 .header__return {
   position: absolute; 
-  top: 19px;   
-  left: 31px; 
+  top: 23px;   
+  left: 20px; 
   font-size: 1.07rem;  
   text-decoration: none; 
   color: #353535;       
@@ -176,7 +176,7 @@ main {
 /*********RESTAURANT****************/
 .menu {
   display: flex;
-  background-color:var(--color-"bg-infos");
+  background-color:var(--color-bg-infos);
   width: 100%;
   margin:0;
   padding-top: 32px;
@@ -209,44 +209,90 @@ main {
 }
 
 .menu__subtitle {
-  font-size: 16px;
-  font-weight: 300;
-  padding-top: 0;
-  margin-top: 0;
+  width:fit-content; // le h2 fait juste la largeur   du mot "ENTRÉES"
+  // (sans ça, il prend toute la largeur de l'écran)
+
+  font-size: 16px; // taille du texte
+  font-weight: 300; // texte fin
+  padding-top: 0;  // pas d'espace intérieur en haut
+  margin-top: 0;  // pas d'espace extérieur en haut
+ 
  
 }
 
+.menu__subtitle::after {
+    content: "";                           // obligatoire pour que la barre existe
+    // crée la boîte (vide). Sans cette ligne, rien n'existe
+    display: block;                        // la barre passe sous le texte
+    // la boîte va à la ligne : elle se place SOUS le mot
+    width: 60%;                            // la moitié du mot
+     // largeur : 60% de la largeur du mot
+    height: 2px;                           // épaisseur du trait
+     // hauteur de la boîte = épaisseur du trait
+    margin-top: 4px;  // espace entre le mot et le trait
+    background: var(--color-green-light);    // on colore la boîte : c'est elle qu'on voit
+}
 
 .menu .menu__starter,
 .menu .menu__main-course,
 .menu .menu__dessert {
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-
- .menu .card__content {
+.menu .card {
   
+  display: flex;
+  flex-direction: column;
+  // padding: 0 13px;
+ 
+  
+}
+ .menu .card__content {
+  width: 100%;
   display: flex;
   min-height: 69px;
   background-color: white;
   align-items: center;
   justify-content: space-between;
-  padding: 13.5px 47px 13.5px 15px;
+  padding: 3.5px 8px 3.5px 8px;
   margin: 0;
   border-radius: 15.04px;
   box-shadow: 0 4.01px 15.04px  rgba(0, 0, 0, 0.10);
+
+  
 }
 
-// .menu .card__content .card__txt .card__title,
-.menu .card__content .card__txt .card__subtitle
-{
-
-
+.menu .card__txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;        // le texte prend toute la place libre, le prix reste à droite
+  min-width: 0;   // le texte peut rétrécir et passer à la ligne proprement
 }
 
+.menu .card__title,
+.menu .card__subtitle {
+  margin: 0;
+  
+}
+.menu .card__title {
+  font-size: 18px;
+}
+.menu .card__subtitle {
+  font-size: 15px;
+
+  //  white-space: nowrap;      // reste sur 1 ligne
+  // overflow: hidden;         // cache ce qui dépasse
+  // text-overflow: ellipsis;  // met "..." à la fin
+  
+}
+
+.menu .card__price {
+  flex-shrink: 0;   // "je ne rétrécis pas, je garde ma taille"
+}
 .menu .container__btn {
   padding:0 0 20px 0;
   cursor: pointer;
@@ -356,7 +402,8 @@ main {
                   // il remplit toute la largeur de la div
   min-height: 4.5rem;
   padding: 0 1.25em;
-  background-color: var(--color-"bg-infos");
+  background-color: var(--color-bg-infos);
+  
   border-radius: 20px;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   font-size: 1rem;               // 16px
