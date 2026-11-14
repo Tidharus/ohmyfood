@@ -83,6 +83,7 @@ body {
 
 .header .header__restaurants {
   position: relative;
+  transition-property: transform;
 }
 
 .header__return {
@@ -91,7 +92,11 @@ body {
   left: 20px; 
   font-size: 1.07rem;  
   text-decoration: none; 
-  color: #353535;       
+  color: #353535;  
+  transition-duration: 300ms;
+  transition-timing-function:ease-out;  
+  transition-delay: 150ms;
+
 }
 
 
