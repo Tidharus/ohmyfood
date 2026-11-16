@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /******** VARIABLES : couleurs et polices **********/
+/******************** RESPONSIVE ********************/
 /*********** :ROOT **************/
 :root {
   --color-primary: #9356DC;
@@ -48,7 +49,6 @@ body {
 /********HEADER PAGE RESTAURANT**********/
 .header .header__restaurants {
   position: relative;
-  transition-property: transform;
 }
 
 .header__return {
@@ -58,9 +58,6 @@ body {
   font-size: 1.07rem;
   text-decoration: none;
   color: #353535;
-  transition-duration: 300ms;
-  transition-timing-function: ease-out;
-  transition-delay: 150ms;
 }
 
 /************ACCUEIL-LOCALISATION*******/
@@ -273,12 +270,8 @@ main {
   margin: 0;
 }
 
-/*le bouton : qui grandit ****/
+/* Le bouton */
 .container__btn .btn {
-  position: relative;
-  z-index: 1;
-  font-size: 16px;
-  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,44 +279,18 @@ main {
   min-height: 50px;
   background: linear-gradient(rgb(255, 121, 218), var(--color-primary));
   color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
   border-radius: 25px;
   text-decoration: none;
   box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.25);
-  transition-property: transform;
-  transition-property: font-size;
-  transition-property: transform, font-size, box-shadow;
-  transition-duration: 300ms, 200ms, 250ms;
-  transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
-  transition-delay: 250ms, 550ms, 0ms;
-}
-
-/* Le voile blanc : étape 1 (il éclaircit le bouton) */
-.container__btn .btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: inherit;
-  background: #ffffff;
-  opacity: 0;
-  z-index: -1;
-  transition-property: opacity;
-  transition-duration: 250ms;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0ms;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 
 /* Au survol */
 .container__btn .btn:hover {
-  transform: scale(1.01);
-  font-size: 16.2px;
-  box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.3);
-}
-
-.container__btn .btn:hover::after {
-  opacity: 0.15;
+  transform: scale(1.05);
+  opacity: 0.85;
 }
 
 .how-it-works {
@@ -530,7 +497,7 @@ main {
   color: white;
 }
 
-.footer__content ul {
+.footer__content .footer__list {
   display: flex;
   flex-direction: column;
   gap: 0.4375rem; /*7px*/
@@ -541,4 +508,102 @@ main {
 
 .footer__content a {
   text-decoration: none;
+}
+
+/*========= TABLETTE (768px et plus) ========== */
+@media (min-width: 768px) {
+  /* Le contenu ne s'étale plus sur tout l'écran */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+  /* Restaurants : 2 cartes par ligne */
+  .restaurants__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px; /*28px*/
+  }
+  /* Footer sur une ligne */
+  .footer__content {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+  .footer__content ul {
+    flex-direction: row;
+    gap: 7px;
+  }
+  .footer__logo {
+    order: 2;
+  }
+  /* PAGE RESTAURANT : photo plus haute, menu centré qui chevauche la photo */
+  .banner {
+    height: 22rem;
+  }
+  .menu {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .menu .container {
+    max-width: 40rem;
+  }
+  .menu__header {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+/* ========== DESKTOP (1024px et plus) ========== */
+@media (min-width: 1024px) {
+  /* Fonctionnement : 3 étapes sur une ligne */
+  .how-it-works .container__btn {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .btn-infos {
+    flex: 1;
+  }
+  /* Page restaurant : menu un peu plus étroit */
+  .menu {
+    width: 70%;
+  }
+}
+/******** ACCUEIL : APPARITION DES BLOCS ********/
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero {
+  animation: show-up 400ms ease-out both;
+}
+
+.how-it-works {
+  animation: show-up 200ms ease-out 300ms both;
+}
+
+.restaurants {
+  animation: show-up 200ms ease-out 300ms both;
+}
+
+/* PAGES RESTAURANT  MENU ARRIVANT */
+.menu__starter {
+  animation: show-up 500ms ease-in-out 200ms both;
+}
+
+.menu__main-course {
+  animation: show-up 500ms ease-in-out 500ms both;
+}
+
+.menu__dessert {
+  animation: show-up 500ms ease-in-out 800ms both;
 }/*# sourceMappingURL=style.css.map */

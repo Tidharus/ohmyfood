@@ -23,7 +23,10 @@ $fonts: (
   "text": ("Roboto", sans-serif)
 );
 
+/******************** RESPONSIVE ********************/
 
+$tablet: 768px;    // à partir de 768px : tablette
+$desktop: 1024px;  // à partir de 1024px : ordinateur
 /*********** :ROOT **************/
 :root {
   // une variable CSS par couleur
@@ -83,7 +86,7 @@ body {
 
 .header .header__restaurants {
   position: relative;
-  transition-property: transform;
+  
 }
 
 .header__return {
@@ -93,11 +96,9 @@ body {
   font-size: 1.07rem;  
   text-decoration: none; 
   color: #353535;  
-  transition-duration: 300ms;
-  transition-timing-function:ease-out;  
-  transition-delay: 150ms;
-
 }
+
+
 
 
 
@@ -226,7 +227,7 @@ main {
 }
 
 .menu__subtitle::after {
-    content: "";                           // obligatoire pour que la barre existe
+    content: "";                           // que la barre existe
     // crée la boîte (vide). Sans cette ligne, rien n'existe
     display: block;                        // la barre passe sous le texte
     // la boîte va à la ligne : elle se place SOUS le mot
@@ -329,62 +330,49 @@ main {
   gap: 1.75rem; /*28px*/
   margin: 0;
 }
-
-/*le bouton : qui grandit ****/
+/* Le bouton */
 .container__btn .btn {
-  position: relative;
-  z-index: 1;
-  font-size: 16px;
-  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 218px;
   min-height: 50px;
-  background:linear-gradient(rgb(255, 121, 218), var(--color-primary));
+  background: linear-gradient(rgb(255, 121, 218), var(--color-primary));
   color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
   border-radius: 25px;
   text-decoration: none;
   box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.25);
-  transition-property: transform;
-  transition-property: font-size;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+  //          QUOI      DURÉE  COMMENT      QUOI    DURÉE  COMMENT
 
-   transition-property: transform, font-size, box-shadow;  // QUOI : la taille du bouton, puis du texte
-  transition-duration: 300ms, 200ms, 250ms;// COMBIEN DE TEMPS : 300ms pour le bouton, 200ms pour le texte, 250ms pour le box-shadow
-  transition-timing-function: ease-in-out, ease-in-out, ease-in-out; // COMMENT : doux au début et à la fin
-  transition-delay: 250ms, 550ms, 0ms; 
-  // le box shadow change tout de suite avec le voile puis le button grandit, puis le texte
-}
+  //transform	:transition-property (QUOI)	on anime transform, donc le scale(1.05) du survol
 
-/* Le voile blanc : étape 1 (il éclaircit le bouton) */
-.container__btn .btn::after {
-  content: "";     // sinon le pseudo-élément n'existe pas + crée la couche vide sans rien
-  position: absolute;// sort pour placer le vide sur le button crée
-  top: 0; //en haut sur le button le vide crée avec content:""
-  right: 0;// a droite sur le button le vide crée avec content:""
-  bottom: 0;//en bas sur le button le vide crée avec content:""
-  left: 0;  //  a gauche sur le button le vide crée avec content:""      // recouvre tout le bouton (= inset: 0) 
-  //inset peut remplacer : top, right , bottom et left 
-  border-radius: inherit;// mêmes arrondis que le bouton
-  background: #ffffff; // voile blanc
-  opacity: 0;            // invisible/transparent au repos
-  z-index: -1;          // passe sous le texte, au-dessus du dégradé
-  transition-property: opacity;// QUOI : la transparence du voile
-  transition-duration: 250ms;   // COMBIEN DE TEMPS
-  transition-timing-function: ease-in-out; // doux début et fin
-  transition-delay: 0ms;// QUAND : tout de suite
+  //transition-duration (DURÉE) 300ms l’agrandissement dure 0,3 seconde
+
+  //transition-timing-function (COMMENT) ease-in-out démarre doucement , accelere puis ralentit vers la fin 
+
+  // N°2
+
+  //OPACITY dans transition-property (QUOI) de 1 à 0.85 pendant l animation 
+
+  // 300ms durée opacity transition-duration (DURÉE) de 0.3 seconde
+
+  //ease-in-out transition-timing-function (COMMENT)
+
+// transition-property: transform, opacity;               // QUOI
+// transition-duration: 300ms, 300ms;                     // DURÉE
+// transition-timing-function: ease-in-out, ease-in-out;  // COMMENT
+// transition-delay: 0ms, 0ms;                            // QUAND (0 par défaut, donc pas écrit)
+
+// Ordre est QUOI DURÉE COMMENT QUAND
 }
 
 /* Au survol */
 .container__btn .btn:hover {
-  transform: scale(1.01); //le bouton grandit, après le voile
-  font-size: 16.2px; //le texte grandit, après le bouton
-  box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.30);
-}
-
-.container__btn .btn:hover::after {
-  opacity: 0.15;  
- 
+  transform: scale(1.05);  // le bouton ET son texte grandissent de 5%
+  opacity: 0.85;           // le bouton devient un peu transparent → plus clair
 }
 // /*******SECTION HOW-ITS-WORKS*************/
 .how-it-works {
@@ -549,7 +537,7 @@ border-radius: 15px 15px 0 0;
   font-size: 1.5rem; /* Ajuste la taille si besoin */
   color: white;
   -webkit-text-stroke: 1px black;
-//position: relative et  z-index: 2; prendle  coeur et le bouge sur un calque supérieur au-dessus du lien qui doit etre invisible. Le heart devient accessible au clic, indépendamment du lien de la carte.
+//position: relative et  z-index: 2; prend le  coeur et le bouge sur un calque supérieur au-dessus du lien qui doit etre invisible. Le heart devient accessible au clic, indépendamment du lien de la carte.
 }
 
 .restaurants__cards .card__title {
@@ -631,7 +619,7 @@ border-radius: 15px 15px 0 0;
 //   padding: 0;
 // }
 
-.footer__content ul {
+.footer__content .footer__list {
   display: flex;
   flex-direction: column;
   gap: 0.4375rem; /*7px*/
@@ -642,3 +630,135 @@ border-radius: 15px 15px 0 0;
 .footer__content a {
   text-decoration: none;
 }
+
+
+
+/*========= TABLETTE (768px et plus) ========== */
+@media (min-width: $tablet) {
+
+  /* Le contenu ne s'étale plus sur tout l'écran */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;              // centré
+    padding: 0 2.5rem;
+  }
+
+  /* Restaurants : 2 cartes par ligne */
+  .restaurants__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   // 2 colonnes de même largeur
+    gap: 50px; /*28px*/
+  }
+
+  /* Footer sur une ligne */
+  .footer__content {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;   // tout à droite, comme la maquette
+    gap: 2rem;
+  }
+//  eloigné mentions de 7 px
+  .footer__content ul {
+    flex-direction: row;         // les liens côte à côte
+    gap: 7px;
+  }
+ //eloigné logo de 16px
+  .footer__logo {
+    order: 2;                    // le logo passe APRÈS les liens (à droite)
+  }
+
+  /* PAGE RESTAURANT : photo plus haute, menu centré qui chevauche la photo */
+  .banner {
+    height: 22rem;
+  }
+
+  .menu {
+    width: 80%;
+    margin: 0 auto ;        // -3rem : remonte sur la photo / auto : centré
+    position: relative;          // passe devant la photo
+  }
+
+  .menu .container {
+    max-width: 40rem;            // les plats ne sont pas trop larges
+  }
+
+  .menu__header {
+    justify-content: center;     // titre + cœur au centre
+    gap: 1rem;
+  }
+}
+
+/* ========== DESKTOP (1024px et plus) ========== */
+@media (min-width: $desktop) {
+
+  /* Fonctionnement : 3 étapes sur une ligne */
+  .how-it-works .container__btn {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .btn-infos {
+    flex: 1;                     // les 3 étapes ont la même largeur
+  }
+
+  /* Page restaurant : menu un peu plus étroit */
+  .menu {
+    width: 70%;
+  }
+}
+
+// voir si possible pour tablette et desktop a faire une media queries 
+
+
+
+/******** ACCUEIL : APPARITION DES BLOCS ********/
+
+@keyframes show-up{
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  animation: show-up 400ms ease-out both;
+}
+
+.how-it-works {
+  animation: show-up 200ms ease-out 300ms both;
+}
+
+.restaurants {
+  animation: show-up 200ms ease-out 300ms both;
+}
+
+  // animation-name: show-up;
+  // animation-duration: 400-200ms;
+  // animation-timing-function: ease-in-out;
+  // animation-delay: 300ms;
+  // animation-fill-mode: both;
+
+  /* PAGES RESTAURANT  MENU ARRIVANT */
+.menu__starter {
+  animation: show-up 500ms ease-in-out 200ms both;
+}
+
+.menu__main-course {
+  animation: show-up 500ms ease-in-out 500ms both;
+}
+
+.menu__dessert {
+  animation: show-up 500ms ease-in-out 800ms both;
+}
+
+//faire les choix restaurants voir clip-path ?
+//faire le loader de la page 
+//tout mettre en scss + crée des mixins 
+//voir @for et $i 
+//noter ce que chaque chose fait pour la soutenance
