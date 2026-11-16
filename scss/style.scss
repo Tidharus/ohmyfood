@@ -659,7 +659,7 @@ border-radius: 15px 15px 0 0;
     gap: 2rem;
   }
 //  eloigné mentions de 7 px
-  .footer__content ul {
+  .footer__content .footer__list {
     flex-direction: row;         // les liens côte à côte
     gap: 7px;
   }
@@ -756,7 +756,9 @@ border-radius: 15px 15px 0 0;
 .menu__dessert {
   animation: show-up 500ms ease-in-out 800ms both;
 }
-
+//mettre a jour les autres pages des restaurants comme la palette du gout 
+// padding sur footer en desktop et tablette mention
+//a écarter un id ? 
 //faire les choix restaurants voir clip-path ?
 //faire le loader de la page 
 //tout mettre en scss + crée des mixins 

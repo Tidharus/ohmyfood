@@ -532,7 +532,7 @@ main {
     justify-content: flex-end;
     gap: 2rem;
   }
-  .footer__content ul {
+  .footer__content .footer__list {
     flex-direction: row;
     gap: 7px;
   }
