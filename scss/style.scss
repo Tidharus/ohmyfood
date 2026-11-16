@@ -174,7 +174,7 @@ main {
 /***********RESTAURANTS PAGES*************/
 .banner {
   width: 100%;
-  height: 275px;
+  height: 17.18rem;
   object-fit: cover;
 
 }
@@ -183,7 +183,7 @@ main {
 .menu {
   position: relative;
   z-index: 1;
-  margin-top: -3rem; 
+  margin-top: -1.5rem; 
   display: flex;
   background-color:var(--color-bg-infos);
   width: 100%;
@@ -673,13 +673,16 @@ border-radius: 15px 15px 0 0;
 
   /* PAGE RESTAURANT : photo plus haute, menu centré qui chevauche la photo */
   .banner {
-    height: 22rem;
+    height: 32rem;
   }
 
   .menu {
-    width: 80%;
-    margin: 0 auto ;        // -3rem : remonte sur la photo / auto : centré
+    width: 84%;
+            // -3rem : remonte sur la photo / auto : centré
     position: relative;          // passe devant la photo
+       margin-left: auto;    // ✅ espace automatique à gauche
+    margin-right: auto;   // ✅ espace automatique à droite → centré
+   
   }
 
   .menu .container {
@@ -708,7 +711,7 @@ border-radius: 15px 15px 0 0;
 
   /* Page restaurant : menu un peu plus étroit */
   .menu {
-    width: 70%;
+    width: 84%;
   }
 }
 

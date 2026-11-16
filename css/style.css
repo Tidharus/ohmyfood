@@ -134,7 +134,7 @@ main {
 /***********RESTAURANTS PAGES*************/
 .banner {
   width: 100%;
-  height: 275px;
+  height: 17.18rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -143,7 +143,7 @@ main {
 .menu {
   position: relative;
   z-index: 1;
-  margin-top: -3rem;
+  margin-top: -1.5rem;
   display: flex;
   background-color: var(--color-bg-infos);
   width: 100%;
@@ -543,12 +543,13 @@ main {
   }
   /* PAGE RESTAURANT : photo plus haute, menu centré qui chevauche la photo */
   .banner {
-    height: 22rem;
+    height: 32rem;
   }
   .menu {
-    width: 80%;
-    margin: 0 auto;
+    width: 84%;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
   }
   .menu .container {
     max-width: 40rem;
@@ -571,7 +572,7 @@ main {
   }
   /* Page restaurant : menu un peu plus étroit */
   .menu {
-    width: 70%;
+    width: 84%;
   }
 }
 /******** ACCUEIL : APPARITION DES BLOCS ********/
