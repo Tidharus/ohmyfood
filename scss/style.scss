@@ -289,7 +289,8 @@ main {
       padding: 0 1.25em;
       background-color: var(--color-bg-infos);
       border-radius: 20px;
-      box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+      // box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+      @include shadow(4px, 15px);
       font-size: 1rem;                 /* 16px */
       font-weight: 500;
       color: #000000;
@@ -520,7 +521,8 @@ main {
       padding: 3.5px 8px;
       margin: 0;
       border-radius: 15.04px;
-      box-shadow: 0 4.01px 15.04px rgba(0, 0, 0, 0.10);
+      // box-shadow: 0 4.01px 15.04px rgba(0, 0, 0, 0.10);
+      @include shadow(4.01px, 15.04px, 0, 0.10);
 
       // MOBILE
       // .menu .card__content:active
@@ -537,7 +539,7 @@ main {
 
         //.menu .card__content:active .card__txt
         .card__txt {
-          margin-right: 4.5rem;// le texte s'arrête avant la coche → "..." si trop long
+          margin-right: 4.5rem;// le texte s'arrête avant la coche"..." si trop long
         }
       }
     }
