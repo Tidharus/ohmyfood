@@ -32,6 +32,19 @@ $anim-delay: 100ms; // décalage entre chaque barre
   background: linear-gradient(rgb(255, 121, 218), var(--color-primary));
 }
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;   
+  align-items: center;      
+}
+
+// BOX-SHADOW
+//$x = horizontale 
+// $y = verticale · $flou = combien c'est flou
+// $opacite = transparence (0.15 si on ne la donne pas)
+@mixin shadow($y, $flou, $etalement: 0, $opacite: 0.15) {
+  box-shadow: 0 $y $flou $etalement rgba(0, 0, 0, $opacite);
+}
 
 
 /* :ROOT
@@ -94,8 +107,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;                              // logo centré
-  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.15);    // ombre légère sous le header
-
+  // box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.15);    // ombre légère sous le header
+  @include shadow(2px, 4px);
   // la zone autour du logo
   &__container--title {
     display: flex;
@@ -138,10 +151,11 @@ main {
   z-index: 1; // passe devant la section suivante pour que son ombre reste visible
   width: 100%;
   min-height: 3.125rem;/* 50px */
-  display: flex;
+  @include flex-center;
+  // display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;// icone + champ au centre
+  // justify-content: center;
+  // align-items: center;// icone + champ au centre
   background: var(--color-grey-infos);
   box-shadow:
     inset 0 4px 4px -2px rgba(0, 0, 0, 0.15),   // EN HAUT : ombre 
@@ -198,20 +212,23 @@ main {
 }
 
 .container__btn {
-  display: flex;
-  justify-content: center;
+  @include flex-center;
+  // display: flex;
+  // justify-content: center;
   flex-direction: column;
-  align-items: center; // bouton centré
+  // align-items: center; // bouton centré
   gap: 1.75rem;/* 28px entre les éléments */
   margin: 0;
 
   .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center; // texte centré dans le bouton
+    // display: flex;
+    // justify-content: center;
+    // align-items: center; // texte centré dans le bouton
+    @include flex-center;
     min-width: 218px;
     min-height: 50px;
-    background: linear-gradient(rgb(255, 121, 218), var(--color-primary));   // dégradé rose → violet
+    // background: linear-gradient(rgb(255, 121, 218), var(--color-primary));   // dégradé rose → violet
+    @include gradient-ohmyfood;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
@@ -239,9 +256,10 @@ main {
       top: 50%;  // le ramene du haut vers le centre 
       transform: translate(-50%, -50%); // x : recule à gauche de la moitié de la largeur vers le bord 
       // y : remonte de la moitié de la hauteur vers le milieu
-      display: flex;
-      justify-content: center;
-      align-items: center;              // numéro centré dans le rond
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;              // numéro centré dans le rond
+      @include flex-center;
       background: var(--color-primary);
       color: white;
       border-radius: 50%;               // rond
@@ -565,14 +583,15 @@ main {
 
     // la coche, cachée au repos .menu .card__check
     &__check {
+      @include flex-center;
       position: absolute; // posée par-dessus la carte
       top: 0;
       right: 0;
       bottom: 0;  // collée à droite, sur toute la hauteur
       width: 4.5rem; /* 72px */ // largeur de la zone verte
-      display: flex;
-      justify-content: center;
-      align-items: center;// icône centrée dans la zone
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;// icône centrée dans la zone
       background: var(--color-green-light);
       border-radius: 0 15.04px 15.04px 0;   // arrondie à droite comme la carte
       color: white;                    // couleur de l'icône
@@ -623,7 +642,7 @@ FOOTER
         min-height: 1.6875rem; /* 27px */
       }
 
-
+    }
 
 /* ----- DESKTOP (1024px et plus) ----- */
 @media (min-width: $desktop) {
@@ -713,36 +732,38 @@ FOOTER
   
   @media (hover: hover) {
 
-  // Boutons Explorer nos restaurants et Commandez
-  .container__btn .btn:hover {
-    transform: scale(1.10);
-    opacity: 0.85;
-  }
+    // Boutons Explorer nos restaurants et Commandez
+    .container__btn .btn:hover {
+      transform: scale(1.10);
+      opacity: 0.85;
+    }
 
-  // Plats : au survol les menus cochés
-  .menu .card__content:hover .card__check {
-    transform: translateX(0);
-  }
+    // Plats : au survol les menus cochés
+    .menu .card__content:hover .card__check {
+      transform: translateX(0);
+    }
 
-  .menu .card__content:hover .card__price {
-    transform: translateX(-4.5rem);
-  }
+    .menu .card__content:hover .card__price {
+      transform: translateX(-4.5rem);
+    }
 
-  .menu .card__content:hover .card__txt {
-    margin-right: 4.5rem;
+    .menu .card__content:hover .card__txt {
+      margin-right: 4.5rem;
+    }
   }
 }
-}
-}
+
 //LOADER
 .load {
   position: fixed;  // collé à l'écran
   inset: 0;  // couvre tout l'écran
   z-index: 100; // au-dessus de tout les site et plus grand que les autres z-index; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; // logo et barres au centre de l'écran
+  // display: flex;
+ 
+  // justify-content: center;
+  // align-items: center; // logo et barres au centre de l'écran
+  @include flex-center;
+   flex-direction: column;
   gap: 2.5rem;
   background: white;
   animation: load-out 500ms ease-in $loader-time forwards;
@@ -765,7 +786,8 @@ FOOTER
     width: .75rem;
     height: 100%;
     border-radius: 1rem;
-    background: linear-gradient(rgb(255, 121, 218), var(--color-primary)); // dégradé du bouton
+    // background: linear-gradient(rgb(255, 121, 218), var(--color-primary)); // dégradé du bouton
+    @include gradient-ohmyfood;
     animation: bars 500ms backwards infinite ease-in-out alternate;
     // bars         le nom du @keyframes
     // 500ms       un mouvement dure 0,5 s

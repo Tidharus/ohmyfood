@@ -50,7 +50,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 .header__container--title {
   display: flex;
@@ -88,9 +88,9 @@ main {
   width: 100%;
   min-height: 3.125rem; /* 50px */
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   background: var(--color-grey-infos);
   box-shadow: inset 0 4px 4px -2px rgba(0, 0, 0, 0.15), 0 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
@@ -147,8 +147,8 @@ main {
 .container__btn {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   gap: 1.75rem; /* 28px entre les éléments */
   margin: 0;
 }
@@ -463,14 +463,14 @@ main {
   transition: transform 300ms ease-out;
 }
 .menu .card__check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   width: 4.5rem; /* 72px */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: var(--color-green-light);
   border-radius: 0 15.04px 15.04px 0;
   color: white;
@@ -515,70 +515,57 @@ FOOTER
   width: 8rem; /* 139px */
   min-height: 1.6875rem; /* 27px */
 }
-.footer {
-  /* ----- DESKTOP (1024px et plus) ----- */
-}
+
+/* ----- DESKTOP (1024px et plus) ----- */
 @media (min-width: 1024px) {
-  .footer {
-    /* ----- EFFETS MOBILE ET DESKTOP  -----
-       En mobile:active (pendant l'appui du doigt
-       En desktop avec:hover
-       SUR : .btn:active - .btn:hover = BUTTON EXPLOREZ ET COMMANDER 
+  /* ----- EFFETS MOBILE ET DESKTOP  -----
+     En mobile:active (pendant l'appui du doigt
+     En desktop avec:hover
+     SUR : .btn:active - .btn:hover = BUTTON EXPLOREZ ET COMMANDER 
 
-       a:active .how-it-works__icon /a:hover .how-it-works__icon = Icones etapes FONCTIONNEMENT
+     a:active .how-it-works__icon /a:hover .how-it-works__icon = Icones etapes FONCTIONNEMENT
 
-      a:active .how-it-works__icon / .card__content:hover = Choisir les plats sur pages des restaurants */
-    /* Le contenu ne s'étale plus sur tout l'écran */
-  }
-  .footer .container {
+    a:active .how-it-works__icon / .card__content:hover = Choisir les plats sur pages des restaurants */
+  /* Le contenu ne s'étale plus sur tout l'écran */
+  .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2.5rem;
   }
-  .footer {
-    /* Accueil : 2 cartes restaurant par ligne */
-  }
-  .footer .restaurants__cards {
+  /* Accueil : 2 cartes restaurant par ligne */
+  .restaurants__cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
   }
-  .footer {
-    /* Accueil : les 3 étapes "Fonctionnement" sur une ligne */
-  }
-  .footer .how-it-works .container__btn {
+  /* Accueil : les 3 étapes "Fonctionnement" sur une ligne */
+  .how-it-works .container__btn {
     flex-direction: row;
     justify-content: space-between;
     gap: 1.5rem;
   }
-  .footer .btn-infos {
+  .btn-infos {
     flex: 1;
   }
-  .footer {
-    /* Page restaurant : photo plus haute */
-  }
-  .footer .banner {
+  /* Page restaurant : photo plus haute */
+  .banner {
     height: 32rem;
   }
-  .footer {
-    /* Page restaurant : menu centré, moins large */
-  }
-  .footer .menu {
+  /* Page restaurant : menu centré, moins large */
+  .menu {
     width: 84%;
     margin-left: auto;
     margin-right: auto;
   }
-  .footer .menu .container {
+  .menu .container {
     max-width: 40rem;
   }
-  .footer .menu__header {
+  .menu__header {
     justify-content: center;
     gap: 1rem;
   }
-  .footer {
-    /* ----- FOOTER DESKTOP ----- */
-  }
-  .footer .footer__content {
+  /* ----- FOOTER DESKTOP ----- */
+  .footer__content {
     width: 100%;
     flex-direction: row;
     align-items: center;
@@ -586,41 +573,40 @@ FOOTER
     gap: 1rem;
     padding: 1.375rem 6rem;
   }
-  .footer .footer__list {
+  .footer__list {
     flex-direction: row;
     gap: 7px;
   }
-  .footer .footer__item:nth-child(3) {
+  .footer__item:nth-child(3) {
     margin-left: 3rem;
   }
-  .footer .footer__logo {
+  .footer__logo {
     order: 2;
   }
 }
 @media (min-width: 1024px) and (hover: hover) {
-  .footer .container__btn .btn:hover {
+  .container__btn .btn:hover {
     transform: scale(1.1);
     opacity: 0.85;
   }
-  .footer .menu .card__content:hover .card__check {
+  .menu .card__content:hover .card__check {
     transform: translateX(0);
   }
-  .footer .menu .card__content:hover .card__price {
+  .menu .card__content:hover .card__price {
     transform: translateX(-4.5rem);
   }
-  .footer .menu .card__content:hover .card__txt {
+  .menu .card__content:hover .card__txt {
     margin-right: 4.5rem;
   }
 }
-
 .load {
   position: fixed;
   inset: 0;
   z-index: 100;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 2.5rem;
   background: white;
   animation: load-out 500ms ease-in 1500ms forwards;
