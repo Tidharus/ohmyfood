@@ -752,8 +752,12 @@ FOOTER
     .menu .card__content:hover .card__txt {
       margin-right: 4.5rem;
     }
+
+      .btn-infos a:hover .how-it-works__icon {                     
+        color: var(--color-primary);                      
+      }                                           }               
   }
-}
+
 
 //LOADER
 .load {
