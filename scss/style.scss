@@ -563,6 +563,7 @@ FOOTER
   background-color: var(--color-footer-grey);
     &__content {
       display: flex;
+       flex-direction: column;  
       gap: 1rem;
       padding: 1.375rem 1.5625rem;
       color: white;
@@ -623,7 +624,7 @@ FOOTER
   }
 
   /* Page restaurant : menu centré, moins large */
-    .menu {
+.menu {
       width: 84%;
        max-width: 65.9375rem;
       margin-left: auto;
@@ -631,12 +632,14 @@ FOOTER
 
       .container {
       max-width: 41.25rem;
+      }
 
       &__header {
       justify-content: center;// titre et coeur icone  au centre
       gap: 1rem;
     }
   }
+
   /* ----- FOOTER DESKTOP ----- */
 
   // Toute la zone : logo + liens sur une ligne
@@ -648,7 +651,7 @@ FOOTER
           justify-content: flex-end;
           gap: 1rem;
           padding: 1.375rem 6rem;  
-          
+      }    
         &__list {
           flex-direction: row; 
           gap: 0.4375rem;//
@@ -658,12 +661,10 @@ FOOTER
           }
             &__logo {
               order: 2;
-            }
-     
+            }  
   }
-  
+ 
 }
-
 
 //LOADER
 .load {
@@ -702,7 +703,7 @@ FOOTER
       }
     }
   }
-}
+
 
 
 /* 
@@ -766,4 +767,3 @@ FOOTER
   animation: show-up 500ms ease-in-out 800ms both; 
 }
 
-}
