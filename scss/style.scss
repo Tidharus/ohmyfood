@@ -72,6 +72,8 @@ $anim-delay: 100ms; // décalage entre chaque barre
 * {
   font-family: var(--font-text);   // Roboto défaut
   box-sizing: border-box;          // le padding et la bordure sont compris dans la largeur
+  -webkit-tap-highlight-color: transparent;   // enlève le surlignage bleu au toucher sur mobile
+  outline: 1px solid red; 
 }
 
 body {
@@ -191,7 +193,7 @@ main {
   }
     &__text {
       text-align: center;
-      font-size: 1; /*18px*/
+      font-size: 1rem; /*18px*/
       color: #353535;
       font-weight: 300;
       padding-bottom: 1.6875rem;/* 27px avant le bouton */
@@ -523,7 +525,7 @@ main {
       border-radius: 15.04px;
       // box-shadow: 0 4.01px 15.04px rgba(0, 0, 0, 0.10);
       @include shadow(4.01px, 15.04px, 0, 0.10);
-
+      
       // MOBILE
       // .menu .card__content:active
       &:hover {
@@ -684,26 +686,38 @@ FOOTER
     flex: 1;// les 3 étapes ont la même largeur
   }
 
+ 
   /* Page restaurant : photo plus haute */
   .banner {
     height: 32rem;
   }
 
   /* Page restaurant : menu centré, moins large */
-  .menu {
-    width: 84%;
-    margin-left: auto;// espace automatique à gauche…
-    margin-right: auto; //et à droite centré
-  }
+    .menu {
+      width: 84%;
+      margin-left: auto;// espace automatique à gauche…
+      margin-right: auto; //et à droite centré
 
-  .menu .container {
-    max-width: 40rem;// les plats ne sont pas trop larges
-  }
+      .container {
+      max-width: 40rem;// les plats ne sont pas trop larges
 
-  .menu__header {
-    justify-content: center;// titre et coeur icone  au centre
-    gap: 1rem;
+      &__header {
+      justify-content: center;// titre et coeur icone  au centre
+      gap: 1rem;
+    }
   }
+}
+
+  // .menu .container {
+  //   max-width: 40rem;// les plats ne sont pas trop larges
+  // }
+
+  // .menu__header {
+  //   justify-content: center;// titre et coeur icone  au centre
+  //   gap: 1rem;
+  // }
+
+  
 
   /* ----- FOOTER DESKTOP ----- */
 
@@ -730,9 +744,11 @@ FOOTER
             &__logo {
               order: 2;// affiché le logo apres les liens
             }
-      
+     
   }
+  
 }
+
 
 //LOADER
 .load {

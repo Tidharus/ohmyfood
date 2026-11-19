@@ -20,6 +20,8 @@
 * {
   font-family: var(--font-text);
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: 1px solid red;
 }
 
 body {
@@ -126,7 +128,7 @@ main {
 }
 .hero__text {
   text-align: center;
-  font-size: 1; /*18px*/
+  font-size: 1rem; /*18px*/
   color: #353535;
   font-weight: 300;
   padding-bottom: 1.6875rem; /* 27px avant le bouton */
@@ -559,7 +561,7 @@ FOOTER
   .menu .container {
     max-width: 40rem;
   }
-  .menu__header {
+  .menu .container__header {
     justify-content: center;
     gap: 1rem;
   }
