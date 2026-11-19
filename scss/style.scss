@@ -12,20 +12,19 @@ $colors: (
   "footer-grey": #353535
 );
 
-// Les polices (
+// Les polices
 $fonts: (
   "title": ("Shrikhand", cursive),
   "text": ("Roboto", sans-serif)
 );
 
 // Les tailles d'écran pour les media queries
-$tablet: 768px;    // à partir de 768px : tablette
-$desktop: 1024px;  // à partir de 1024px : ordinateur
+$desktop: 1024px; 
 
 // Le loader de la page d'accueil
-$loader-time: 1500ms;   // durée d'affichage du loader (le brief demande 1 à 3 s)
-$num-bars: 5; // nombre de barres du loader
-$anim-delay: 100ms; // décalage entre chaque barre
+$loader-time: 1500ms;   
+$num-bars: 5; 
+$anim-delay: 100ms; 
 
 //MIXINS
 @mixin gradient-ohmyfood {
@@ -39,20 +38,11 @@ $anim-delay: 100ms; // décalage entre chaque barre
 }
 
 // BOX-SHADOW
-//$x = horizontale 
-// $y = verticale · $flou = combien c'est flou
-// $opacite = transparence (0.15 si on ne la donne pas)
 @mixin shadow($y, $flou, $etalement: 0, $opacite: 0.15) {
   box-shadow: 0 $y $flou $etalement rgba(0, 0, 0, $opacite);
 }
 
-
-
-
-/* :ROOT
-   La boucle @each lit chaque ligne d'une map et crée une variable CSS.
-   Résultat dans le CSS : --color-primary // --font-title
-*/
+/* :ROOT */
 
 :root {
   // une variable CSS par couleur :
@@ -66,42 +56,36 @@ $anim-delay: 100ms; // décalage entre chaque barre
   }
 }
 
-
 /* SITE PAGE MOBILE*/
-
 * {
-  font-family: var(--font-text);   // Roboto défaut
-  box-sizing: border-box;          // le padding et la bordure sont compris dans la largeur
-  -webkit-tap-highlight-color: transparent;   // enlève le surlignage bleu au toucher sur mobile
+  font-family: var(--font-text);   
+  box-sizing: border-box;          
+  -webkit-tap-highlight-color: transparent;
   outline: 1px solid red; 
 }
 
 body {
-  margin: 0; // enlève la marge blanche du navigateur autour de la page
+  margin: 0;
 }
 
 main {
   display: flex;
-  flex-direction: column; // les sections les unes sous les autres
+  flex-direction: column;
 }
-
-
 
 /*VISUALLY HIDDEN du site */
 
 // Cache le texte à l'écran
 .visually-hidden {
-  position: absolute; // sort l element - sort du flux : ne prend plus de place
-  width: 1px; //minuscule, mais pas 0, pour rester lisible
-  height: 1px;// le rend tres petit sinon si 0 lecteur d ecran peut le considerer comme si il n existe pas !
-  padding: 0; //aucun espace autour
-  margin: -1px; //aucun espace autour
-  overflow: hidden; // cache ce qui dépasse
-  clip-path: inset(50% 50%);// découpe tout : rien n'est visible
-  //empêche une portion d'un élément d'être affichée 
-  white-space: nowrap; // le texte ne descend pas sur plusieurs lignes
+  position: absolute; 
+  width: 1px; 
+  height: 1px;
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip-path: inset(50% 50%);
+  white-space: nowrap;
 }
-
 
 /* HEADER */
 
@@ -110,34 +94,31 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;                              // logo centré
-  // box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.15);    // ombre légère sous le header
+  align-items: center;                             
   @include shadow(2px, 4px);
-  // la zone autour du logo
   &__container--title {
     display: flex;
     justify-content: center;
-    min-height: 3.9375rem;/* 63px */
-    padding-top: 0.875rem; /*14px*/
-    padding-bottom: 0.8125rem; /*13px*/
+    min-height: 3.9375rem;
+    padding-top: 0.875rem;
+    padding-bottom: 0.8125rem;
   }
     &__title {
-        font-size: 1.875rem; /*30px*/
+        font-size: 1.875rem;
         font-family: var(--font-title);
         margin: 0;
-        letter-spacing: 0.025em; /*0.4px*/
+        letter-spacing: 0.025em;
     }  
-
     &.header__restaurants {
-      position: relative;  //placer la flèche retour
+      position: relative;  
     }
       // La flèche retour
       &__return {
-        position: absolute;// par rapport au header 
-        top: 1.6875rem; /*27px*/
-        left: 1.25rem; /*20px*/
+        position: absolute;
+        top: 1.6875rem;
+        left: 1.25rem; 
         font-size: 1.07rem;
-        text-decoration: none;// pas de soulignement
+        text-decoration: none;
         color: #353535;
       }
     }
@@ -146,98 +127,84 @@ main {
 
 /* ----- Barre de localisation ----- */
 .localisation {
-  position: relative;
-  z-index: 1; // passe devant la section suivante pour que son ombre reste visible
-  width: 100%;
-  min-height: 3.125rem;/* 50px */
   @include flex-center;
-  // display: flex;
+  position: relative;
+  z-index: 1; 
+  width: 100%;
+  min-height: 3.125rem;
+ 
   flex-direction: row;
-  // justify-content: center;
-  // align-items: center;// icone + champ au centre
   background: var(--color-grey-infos);
   box-shadow:
-    inset 0 4px 4px -2px rgba(0, 0, 0, 0.15),   // EN HAUT : ombre 
-    0 4px 4px 0px rgba(0, 0, 0, 0.15);          // EN BAS : ombre 
-
-  // le champ de recherche
+    inset 0 4px 4px -2px rgba(0, 0, 0, 0.15),
+    0 4px 4px 0px rgba(0, 0, 0, 0.15);         
   &__input {
     border: 1px transparent;
     background: var(--color-grey-infos);
     text-align: center;
     box-shadow: 0 0px 5px 9px rgba(214, 213, 213, 0.20);
-    padding: 0.5rem 1rem; /* 8px 16px */
+    padding: 0.5rem 1rem; 
     border-radius: 25px;
-    outline: none;                 // enlève le contour quand on clic sur barre de recherche pour chercher 
+    outline: none;                 
   }
-
-  // le texte "Paris, Belleville" dans le champ vide
     &__input::placeholder {
       color: #353535;
       font-weight: 500;
-      font-size: 1rem;/* 16px */
+      font-size: 1rem;
     }
 }
 
 /* ----- Section hero Réservez le menu qui vous convient" ----- */
 .hero {
   width: 100%;
-  min-height: 17.9375rem;/* 287px */
+  min-height: 17.9375rem;
   display: flex;
   background: var(--color-bg-infos);
-  padding: 2.4375rem 0 3.5625rem 0; /* 39px en haut, 57px en bas */
+  padding: 2.4375rem 0 3.5625rem 0;
     &__title {
     text-align: center;
-    font-size: 1.5rem; /*24px*/
+    font-size: 1.5rem; 
     margin: 0;
   }
     &__text {
       text-align: center;
-      font-size: 1rem; /*18px*/
+      font-size: 1rem; 
       color: #353535;
       font-weight: 300;
-      padding-bottom: 1.6875rem;/* 27px avant le bouton */
+      padding-bottom: 1.6875rem;
     }
 }
 
 /* ----- Zone des boutons (accueil + "Commandez" des pages restaurant) ----- */
-// Le conteneur 
 .container {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-  padding: 0 1.25rem;// 20px à gauche et à droite
+  padding: 0 1.25rem;
 }
 
 .container__btn {
   @include flex-center;
-  // display: flex;
-  // justify-content: center;
   flex-direction: column;
-  // align-items: center; // bouton centré
-  gap: 1.75rem;/* 28px entre les éléments */
+  gap: 1.75rem;
   margin: 0;
 
   .btn {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center; // texte centré dans le bouton
     @include flex-center;
-     @include gradient-ohmyfood;
-    min-width: 13.625rem; /*218px*/
-    min-height:  3.125rem; /*50px*/
-    // background: linear-gradient(rgb(255, 121, 218), var(--color-primary));   // dégradé rose → violet
+    @include gradient-ohmyfood;
+    min-width: 13.625rem; 
+    min-height:  3.125rem; 
     color: #ffffff;
-    font-size: 1rem; /*16px*/
+    font-size: 1rem; 
     font-weight: 500;
-    border-radius: 25px;             // bords bien ronds
+    border-radius: 25px;           
     text-decoration: none;
     box-shadow: 0 2px 10px 4px rgba(34, 32, 32, 0.25);
     transition: transform 300ms ease-in-out, opacity 200ms ease-in-out;
       &:hover{
-        transform: scale(1.10);          // le bouton ET son texte grandissent de 10%
-        opacity: 0.85;//au active et hover sur desktop s eclaircie 
+        transform: scale(1.10);         
+        opacity: 0.85;
       }
   }
 }
@@ -245,26 +212,21 @@ main {
 
 /* ----- Section "Fonctionnement" ----- */
 .how-it-works {
-  padding-top: 2rem;  /* 32px */
-  padding-bottom: 4.25rem;/* 68px */
+  padding-top: 2rem;
+  padding-bottom: 4.25rem;
   margin-bottom: 0;
-  // le rond violet avec le numérosur le bord gauche des icones 
     &__number {
-      position: absolute; // posé par-dessus l'étape le btn-infos a 
-      left: 0;//reste collé sur le bord a gauche                      // 
-      top: 50%;  // le ramene du haut vers le centre 
-      transform: translate(-50%, -50%); // x : recule à gauche de la moitié de la largeur vers le bord 
-      // y : remonte de la moitié de la hauteur vers le milieu
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;              // numéro centré dans le rond
+      position: absolute; 
+      left: 0;                    
+      top: 50%;  
+      transform: translate(-50%, -50%); 
       @include flex-center;
       background: var(--color-primary);
       color: white;
-      border-radius: 50%;               // rond
-      font-size: 0.8862rem;  /*14.18px*/
-      height: 1.5rem; /*24px*/                  /* 24px */
-      width: 1.5rem;  /*24px*/                  /* 24px */
+      border-radius: 50%;              
+      font-size: 0.8862rem;
+      height: 1.5rem;                
+      width: 1.5rem;                 
       flex-shrink: 0;
     }
     // l'icône grise 
@@ -274,41 +236,34 @@ main {
       }
 }
 
-// le bloc de chaque étape (laisse 20px à gauche pour le rond numéroté)
 .btn-infos {
   width: 100%;
-  padding-left: 1.25rem; /*20px*/
-  // lien BUTTON FONCTIONNEMENT
+  padding-left: 1.25rem;
     a {
       position: relative;              
-      display: flex; //lien devient bloc de inline
+      display: flex; 
       align-items: center;
-      gap: 1rem; // espace entre l'icône et le texte /*16px*/
+      gap: 1rem;
       min-height: 4.5rem;
       padding: 0 1.25em;
       background-color: var(--color-bg-infos);
       border-radius: 20px;
-      // box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
       @include shadow(4px, 15px);
-      font-size: 1rem;                 /* 16px */
+      font-size: 1rem;
       font-weight: 500;
       color: #000000;
-      text-decoration: none;// pas de soulignement sur le line 
-      white-space: nowrap; // le texte reste sur une ligne
-         // MOBILE 
-      &:hover .how-it-works__icon {
-      color: var(--color-primary);
-      }
-
+      text-decoration: none;
+      white-space: nowrap;
+        &:hover .how-it-works__icon {
+          color: var(--color-primary);
+        }
   }
 }
-    
-
 
 /* ----- Section "Restaurants" ACCUEIL ----- */
 .restaurants {
-  padding-top: 1.25rem; /*20px*/
-  padding-bottom: 4.125rem; /*66px*/
+  padding-top: 1.25rem;
+  padding-bottom: 4.125rem; 
   margin-top: 0;
   background: var(--color-bg-infos);
     .container {
@@ -321,7 +276,7 @@ main {
 .restaurants__cards {
   width: 100%;
   display: flex;
-  flex-direction: column;// une carte sous l'autre
+  flex-direction: column;
   gap: 1.125rem; /*18px*/
     & a {
       text-decoration: none;
@@ -341,28 +296,28 @@ main {
     .card__image {
       display: flex;
       width: 100%;
-      height: 10.4rem;  /* 167px */
-      object-fit: cover; // remplit la zone sans déforme l 'image
-      border-radius: 15px 15px 0 0;  // arrondi seulement en haut 
+      height: 10.4rem;
+      object-fit: cover;
+      border-radius: 15px 15px 0 0;
     }
   // la zone texte + coeur sous la photo
     .card__content {
       width: 100%;
       display: flex;
-      justify-content: space-between;  // texte à gauche, cœur à droite
+      justify-content: space-between;
       align-items: center;
-      gap: 0.5rem; /*8px*/
+      gap: 0.5rem;
       height: 5.25rem;
-      padding: 0 0.8125rem; /* 0 13px*/
+      padding: 0 0.8125rem;
     }
     .card__title {
       margin: 0;
-      font-size: 1.125rem;/* 18px */
+      font-size: 1.125rem;
       font-weight: 700;
     }
     .card__location {
       margin: 0;
-      font-size: 1.0625rem;/* 17px */
+      font-size: 1.0625rem;
       color: #353535;
       font-weight: 300;
     }
@@ -370,16 +325,16 @@ main {
 
 // le badge vert "Nouveau" en haut à droite de la photo
 .badge {
-  position: absolute; // posé par rapport à la carte
-  padding: 0.4375rem 0.5625rem; /* 7px 9px */
+  position: absolute;
+  padding: 0.4375rem 0.5625rem;
   border-radius: 2px;
-  top: 1rem; /*16px*/
-  right: 0.6875rem; /*11px*/
+  top: 1rem;
+  right: 0.6875rem;
   background-color: var(--color-green-light);
-  width: 5rem;/* 80px */
-  height: 1.8125rem; /* 29px */
+  width: 5rem;
+  height: 1.8125rem; 
     &__title {
-      font-size: 0.875em; /*14px*/
+      font-size: 0.875em; 
       color: var(--color-green-dark);
       font-weight: 500;
       margin: 0;
@@ -390,69 +345,64 @@ main {
 .card__link {
   text-decoration: none;
   color: inherit;  
-  //    cliquer n'importe où sur la carte = cliquer sur le lien 
     &::after {
-      content: ""; // crée le bloc 
-      position: absolute;// il flotte au-dessus de la carte
+      content: "";
+      position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
-      left: 0; // accroché aux 4 bords de la carte (= inset: 0)
+      left: 0;
     }               
 }
 
 /* ----- Le coeur  favori accueil + pages restaurant) ----- */
-//le coeur passe AU-DESSUS du link,  afin de le cliquer 
 .card__like {
   position: relative;             
-  z-index: 1;                      // devant le ::after du lien
-  cursor: pointer;                 // main au survol
+  z-index: 1;                     
+  cursor: pointer;                
   font-size: 1.5rem; /*24px*/
   // Case NON cochée
     &-icon {
       color: white;
-      -webkit-text-stroke: 1px black;  // le border du coeur 
+      -webkit-text-stroke: 1px black;  
       cursor: pointer;
     }
 // Case COCHÉE :
     &-input:checked + .card__like-icon {
       background: linear-gradient(var(--color-primary), rgb(255, 121, 218));
-      background-clip: text;           // le dégradé ne s'affiche que dans la forme du coeur
-      //L'arrière-plan est limité (rogné) au texte en premier plan.(mdn) sinon toute la couleur cache le coeur 
-      color: transparent;              // la couleur normale disparaît on voit le dégradé
-      -webkit-text-stroke: 0;          // plus de contour noir
+      background-clip: text;         
+      color: transparent;             
+      -webkit-text-stroke: 0;      
     }
 }
 
-/*
-  PAGES DES RESTAURANT
- */
+/*PAGES DES RESTAURANT*/
 
 /* ----- La photo du restaurant en haut ----- */
 .banner {
   width: 100%;
-  height: 17.18rem;   /*274.88px*/      
-  object-fit: cover; //permet que la photo ne se déforme pas et s'adapte a son conteneur
+  height: 17.18rem;     
+  object-fit: cover;
 }
 
 
 .menu {
   /* ----- Le bloc menu remonte sur la photo ----- */
   position: relative;
-  z-index: 1; // passe devant  la photo
-  margin-top: -1.5rem; // remonte de 1.5rem sur la photo
+  z-index: 1; 
+  margin-top: -1.5rem;
   display: flex;
   background-color: var(--color-bg-infos);
   width: 100%;
-  padding-top: 2rem; /*32px*/
-  border-radius: 35px 35px 0 0;  // arrondi seulement en haut
+  padding-top: 2rem;
+  border-radius: 35px 35px 0 0;
 
   //.menu .container
   .container {
     display: flex;
     width: 100%;
-    gap: 2.5rem;  /* 40px */ // entre le titre, les entrées, les plats…
-    padding: 0 0.8125rem; /*0 13px*/
+    gap: 2.5rem;
+    padding: 0 0.8125rem; 
   }
 
   /* ----- Titre du restaurant + coeur ----- */
@@ -460,34 +410,33 @@ main {
   &__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;// titre à gauche, cœur à droite
+    justify-content: space-between;
     margin: 0;
   }
 
   //.menu__title
   &__title {
-    font-family: var(--font-title);// Shrikhand
-    font-size: 1.75rem; /*28px*/
+    font-family: var(--font-title);
+    font-size: 1.75rem;
     margin: 0;
   }
 
   /* ----- Titres ENTRÉES, PLATS, DESSERTS ----- */
   //.menu__subtitle
   &__subtitle {
-    width: fit-content;  // le h2 fait la largeur du mot (sinon toute la ligne)
-    font-size: 1rem; /*16px*/
+    width: fit-content;
+    font-size: 1rem;
     font-weight: 300;
     padding-top: 0;
     margin-top: 0;
 
-    // Le petit trait vert sous le mot = une boîte ::after colorée
-    // .menu__subtitle::after
+    // Le petit trait vert sous le mot 
     &::after {
-      content: "";     // sans cette ligne, la boîte n'existe pas
-      display: block;  // la boîte passe à la ligne : SOUS le mot
-      width: 60%;      // 60% de la largeur du mot
-      height: 2px;     // épaisseur du trait
-      margin-top: 4px;// espace entre le mot et le trait
+      content: "";     
+      display: block;  
+      width: 60%;      
+      height: 2px;    
+      margin-top: 4px;
       background: var(--color-green-light);
     }
   }
@@ -499,8 +448,8 @@ main {
   &__dessert {
     width: 100%;
     display: flex;
-    flex-direction: column;// les cartes l'une sous l'autre
-    gap: 0.75rem; /*12px*/
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   /* ----- La carte d'un plat et tous ses éléments ----- */
@@ -511,37 +460,36 @@ main {
 
     // la carte blanche → .menu .card__content
     &__content {
-      position: relative;// la coche se place dans la carte
-      overflow: hidden; // cache ce qui dépasse la coche cachée à droite est invisible
+      position: relative;
+      overflow: hidden; 
       width: 100%;
-      display: flex; //texte + prix + coche sur une ligne
-      min-height: 4.3125rem; /*69px*/
+      display: flex; 
+      min-height: 4.3125rem;
       background-color: white;
-      align-items: center;             // tout est centré en hauteur
-      justify-content: space-between;  // texte à gauche, prix à droite
-      gap: 1rem;                       // le texte s'arrête toujours à 1rem du prix
+      align-items: center;            
+      justify-content: space-between;
+      gap: 1rem;
       padding: 0.21875rem 0.5rem; /* 3.5px 8px */ 
       margin: 0;
       border-radius: 15.04px;
-      // box-shadow: 0 4.01px 15.04px rgba(0, 0, 0, 0.10);
       @include shadow(4.01px, 15.04px, 0, 0.10);
       
-      // MOBILE
-      // .menu .card__content:active
+      
+      // .menu .card__content:hover
       &:hover {
-        //.menu .card__content:active .card__check
+        //.menu .card__content:hover .card__check
         .card__check {
           transform: translateX(0);// la coche entre dans la carte
         }
 
         // .menu .card__content:active .card__price
         .card__price {
-          transform: translateX(-4.5rem);// le prix recule de la largeur de la coche
+          transform: translateX(-4.5rem);
         }
 
         //.menu .card__content:active .card__txt
         .card__txt {
-          margin-right: 4.5rem;// le texte s'arrête avant la coche"..." si trop long
+          margin-right: 4.5rem;
         }
       }
     }
@@ -549,59 +497,55 @@ main {
     // .menu .card__txt
     &__txt {
       display: flex;
-      flex-direction: column;// titre au-dessus, sous-titre en dessous
-      gap: 0.125rem; /*2px*/
-      flex: 1;// prend toute la place libre
-      min-width: 0; // permet au texte de rétrécir (avec nowrap), sinon pas de "..."
-      transition: margin-right 300ms ease-out;// rétrécit en douceur
+      flex-direction: column;
+      gap: 0.125rem;
+      flex: 1;
+      min-width: 0;
+      transition: margin-right 300ms ease-out;
     }
 
-    // titre et sous-titre : une ligne, "..." si la place manque
+    // titre et sous-titre 
     // .menu .card__title, .menu .card__subtitle
     &__title,
     &__subtitle {
-      margin: 0;              // enlève les marges du navigateur
-      white-space: nowrap;    // reste sur une seule ligne
-      overflow: hidden;       // cache ce qui dépasse
-      text-overflow: ellipsis;// met "..." à la fin
+      margin: 0;              
+      white-space: nowrap;    
+      overflow: hidden;       
+      text-overflow: ellipsis;
     }
 
     //.menu .card__title
     &__title {
-      font-size: 1.125rem; /*18px*/
+      font-size: 1.125rem;
     }
 
     //.menu .card__subtitle
     &__subtitle {
-      font-size: 0.9375rem; /*15px*/
+      font-size: 0.9375rem; 
     }
 
     // le prix  .menu .card__price
     &__price {
-      flex-shrink: 0; // ne rétrécit pas
-      align-self: flex-end;  // le prix descend en bas
-      margin-bottom: 0.5rem; // remonte un peu, à hauteur du sous-titre
+      flex-shrink: 0;
+      align-self: flex-end;
+      margin-bottom: 0.5rem;
       font-weight: 700;
-      transition: transform 300ms ease-out;  // ralentit à la fin
+      transition: transform 300ms ease-out;
     }
 
     // la coche, cachée au repos .menu .card__check
     &__check {
       @include flex-center;
-      position: absolute; // posée par-dessus la carte
+      position: absolute;
       top: 0;
       right: 0;
-      bottom: 0;  // collée à droite, sur toute la hauteur
-      width: 4.5rem; /* 72px */ // largeur de la zone verte
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;// icône centrée dans la zone
+      bottom: 0; 
+      width: 4.5rem; /* 72px */
       background: var(--color-green-light);
-      border-radius: 0 15.04px 15.04px 0;   // arrondie à droite comme la carte
-      color: white;                    // couleur de l'icône
-      transform: translateX(100%);     //invisble: poussée de sa largeur vers la droite,
-                                       // hors de la carte, cachée par l'overflow: hidden
-      transition: transform 300ms ease-out;  // dure 300ms, ralentit à la fin
+      border-radius: 0 15.04px 15.04px 0;   
+      color: white;                  
+      transform: translateX(100%);    
+      transition: transform 300ms ease-out;
     }
   }
    /* ----- Le bouton "Commandez" ----- */
@@ -621,9 +565,8 @@ FOOTER
   background-color: var(--color-footer-grey);
     &__content {
       display: flex;
-      flex-direction: column; // logo et liens
-      gap: 1rem;/* 16px */
-      padding: 1.375rem 1.5625rem; /* 22px 25px*/
+      gap: 1rem;
+      padding: 1.375rem 1.5625rem;
       color: white;
         & a {
           color: white;
@@ -636,12 +579,12 @@ FOOTER
         font-size: 1.125rem; /*18px*/
         font-family:var(--font-title);
         margin:0;
-        letter-spacing: 0.063em; /*1px*/
+        letter-spacing: 0.063em; 
       }
      &__list {
           display: flex;
           flex-direction: column;    
-          gap: 0.4375rem;   /* 7px */
+          gap: 0.4375rem;   
           list-style: none;                
           margin: 0;
           padding: 0; 
@@ -651,27 +594,16 @@ FOOTER
 
 /* ----- DESKTOP (1024px et plus) ----- */
 @media (min-width: $desktop) {
-
-  /* ----- EFFETS MOBILE ET DESKTOP  -----
-     En mobile:active (pendant l'appui du doigt
-     En desktop avec:hover
-     SUR : .btn:active - .btn:hover = BUTTON EXPLOREZ ET COMMANDER 
-
-     a:active .how-it-works__icon /a:hover .how-it-works__icon = Icones etapes FONCTIONNEMENT
-
-    a:active .how-it-works__icon / .card__content:hover = Choisir les plats sur pages des restaurants */
-
-  /* Le contenu ne s'étale plus sur tout l'écran */
   .container {
-    max-width: 68.75rem; /*1100px*/// largeur maximum
-    margin: 0 auto;  // centré
+    max-width: 72.5rem; 
+    margin: 0 auto;  
     padding: 0 2.5rem;
   }
 
   /* Accueil : 2 cartes restaurant par ligne */
   .restaurants__cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;// 2 colonnes de même largeur
+    grid-template-columns: 1fr 1fr;
     gap: 3.125rem; /*50px*/
   }
 
@@ -683,7 +615,7 @@ FOOTER
   }
 
   .btn-infos {
-    flex: 1;// les 3 étapes ont la même largeur
+    flex: 1;
   }
 
  
@@ -695,54 +627,39 @@ FOOTER
   /* Page restaurant : menu centré, moins large */
     .menu {
       width: 84%;
-      margin-left: auto;// espace automatique à gauche…
-      margin-right: auto; //et à droite centré
+       max-width: 65.9375rem;
+      margin-left: auto;
+      margin-right: auto; 
 
       .container {
-      max-width: 40rem;// les plats ne sont pas trop larges
+      max-width: 41.25rem;
 
       &__header {
       justify-content: center;// titre et coeur icone  au centre
       gap: 1rem;
     }
   }
-}
-
-  // .menu .container {
-  //   max-width: 40rem;// les plats ne sont pas trop larges
-  // }
-
-  // .menu__header {
-  //   justify-content: center;// titre et coeur icone  au centre
-  //   gap: 1rem;
-  // }
-
-  
-
   /* ----- FOOTER DESKTOP ----- */
 
   // Toute la zone : logo + liens sur une ligne
   .footer {
       &__content {
           width: 100%;
-          flex-direction: row; // row au lieu de colonne
-          align-items: center; // logo et liens au milieux et  en hauteur
-          justify-content: flex-end;//  à droite
-          gap: 1rem; // 16px entre la liste des liens et le logo 
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 1rem;
           padding: 1.375rem 6rem;  
-          // La liste des liens : sur une ligne
-          // "Mentions légales" 3e link  s'éloigne de "Devenir partenaire"
-          // :nth-child(3) = seulement le 3e <li> de la liste ; "Contact" reste normale derrière lui
-      }
+          
         &__list {
-          flex-direction: row; // les liens les uns a coté des autres 
-          gap: 0.4375rem;// 7px entre chaque lien
+          flex-direction: row; 
+          gap: 0.4375rem;//
         }
           &__item:nth-child(3) {
-            margin-left: 3rem;// écart des 7px  séparet les 2 groupes de liens
+            margin-left: 3rem;
           }
             &__logo {
-              order: 2;// affiché le logo apres les liens
+              order: 2;
             }
      
   }
@@ -752,20 +669,14 @@ FOOTER
 
 //LOADER
 .load {
-  position: fixed;  // collé à l'écran
-  inset: 0;  // couvre tout l'écran
-  z-index: 100; // au-dessus de tout les site et plus grand que les autres z-index; 
-  // display: flex;
- 
-  // justify-content: center;
-  // align-items: center; // logo et barres au centre de l'écran
+  position: fixed; 
+  inset: 0;  
+  z-index: 100; 
   @include flex-center;
    flex-direction: column;
   gap: 2.5rem;
   background: white;
   animation: load-out 500ms ease-in $loader-time forwards;
-  //         NOM      DURÉE  RYTHME  ATTENTE 1.5 secondes  reste disparu à la fin
-
   &__logo {
     width: 12rem;
   }
@@ -775,7 +686,7 @@ FOOTER
     width: 6rem;
     height: 4rem;
     display: flex;
-    justify-content: space-evenly; // les 5 barres réparties avec le même espace
+    justify-content: space-evenly;
   }
 
   // une barre
@@ -783,28 +694,13 @@ FOOTER
     width: .75rem;
     height: 100%;
     border-radius: 1rem;
-    // background: linear-gradient(rgb(255, 121, 218), var(--color-primary)); // dégradé du bouton
     @include gradient-ohmyfood;
     animation: bars 500ms backwards infinite ease-in-out alternate;
-    // bars         le nom du @keyframes
-    // 500ms       un mouvement dure 0,5 s
-    // backwards    pendant son delay, la barre est déjà petite (pas de saut)
-    // infinite    se répète sans fin
-    // ease-in-out  doux au début et à la fin
-    // alternate    un aller puis un retour : grandit, rétrécit, grandit…
-
-    // Boucle @for comme le cours openclassroom  : crée .load__bar--1 à .load__bar--5,
-    // chacune un peu plus en retard 
-    @for $i from 1 through $num-bars {
-      &--#{$i} {
-        animation-delay: $anim-delay * $i;   // 100ms, 200ms, 300ms, 400ms, 500ms, variable crée calcul par sass 5 fois par barre
-        // * 1 *2 * 3 * 4 *5 - chaque barre commence 100ms apres l autre 
-
-        //.load__bar--1 { animation-delay: 100ms; }
-          // .load__bar--2 { animation-delay: 200ms; }
-          // .load__bar--3 { animation-delay: 300ms; }
-          // .load__bar--4 { animation-delay: 400ms; }
-          // .load__bar--5 { animation-delay: 500ms; }
+  
+      @for $i from 1 through $num-bars {
+        &--#{$i} {
+          animation-delay: $anim-delay * $i;   
+        }
       }
     }
   }
@@ -820,15 +716,15 @@ FOOTER
 
 // les barres grandissent et rétrécissent en hauteur
 @keyframes bars {
-  from { transform: scaleY(0.3); }// 30% de leur hauteur
-  to   { transform: scaleY(1); }  // 100% de leur hauteur
+  from { transform: scaleY(0.3); }
+  to   { transform: scaleY(1); }
 }
 
 // le loader disparaît
 @keyframes load-out {
   to {
-    opacity: 0; // devient transparent
-    visibility: hidden; // puis n'existe plus : on peut cliquer sur la page
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -846,9 +742,7 @@ FOOTER
   }
 }
 
-/* ----- Accueil : les bloc apparaissent "APRÈS" le loader ----- */
-// Ordre : NOM · DURÉE · RYTHME · ATTENTE · both
-// both = invisible pendant l'attente et  devient  visible à la fin 
+/* ----- Accueil----------------------------------*/
 .hero {
   animation: show-up 400ms ease-out $loader-time both;   
 }
@@ -862,21 +756,16 @@ FOOTER
 }
 
 /* ----- Pages restaurant : les menus apparaissent par groupe ----- */
-// délais  300ms d'écart entre chaque groupe
 .menu__starter {
-  animation: show-up 500ms ease-in-out 200ms both; // entrées
+  animation: show-up 500ms ease-in-out 200ms both; 
 }
 
 .menu__main-course {
-  animation: show-up 500ms ease-in-out 500ms both;// plats
+  animation: show-up 500ms ease-in-out 500ms both;
 }
 
 .menu__dessert {
-  animation: show-up 500ms ease-in-out 800ms both; // desserts
+  animation: show-up 500ms ease-in-out 800ms both; 
 }
 
-// show-up : animation-name
-// 500ms : animation-duration
-//ease-in-out : animation-timing-function 
-//200, 500ms, 800ms:  animation-delay  
-//both: animation-fill-mode: avant et apres 
+}
