@@ -417,6 +417,7 @@ main {
   margin: 0;
   border-radius: 15.04px;
   box-shadow: 0 4.01px 15.04px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 .menu .card__content:hover .card__check {
   transform: translateX(0);
