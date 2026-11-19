@@ -59,7 +59,8 @@ $anim-delay: 100ms;
 /* SITE PAGE MOBILE*/
 * {
   font-family: var(--font-text);   
-  box-sizing: border-box;          
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;          
 }
 
 body {
