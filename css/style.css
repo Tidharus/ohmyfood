@@ -567,7 +567,6 @@ FOOTER
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-    padding: 1.375rem 6rem;
   }
   .footer__list {
     flex-direction: row;
@@ -576,7 +575,7 @@ FOOTER
   .footer__item:nth-child(3) {
     margin-left: 3rem;
   }
-  .footer__logo {
+  .footer__title {
     order: 2;
   }
 }

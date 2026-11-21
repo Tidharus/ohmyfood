@@ -489,12 +489,12 @@ flex: 1;
           transform: translateX(0);// la coche entre dans la carte
         }
 
-        // .menu .card__content:active .card__price
+        // .menu .card__content:hover.card__price
         .card__price {
           transform: translateX(-4.5rem);
         }
 
-        //.menu .card__content:active .card__txt
+        //.menu .card__content:hover.card__txt
         .card__txt {
           margin-right: 4.5rem;
         }
@@ -659,7 +659,7 @@ FOOTER
           align-items: center;
           justify-content: flex-end;
           gap: 1rem;
-          padding: 1.375rem 6rem;  
+           
       }    
         &__list {
           flex-direction: row; 
@@ -668,7 +668,7 @@ FOOTER
           &__item:nth-child(3) {
             margin-left: 3rem;
           }
-            &__logo {
+            &__title {
               order: 2;
             }  
   }
@@ -697,7 +697,7 @@ FOOTER
     justify-content: space-evenly;
   }
 
-  // une barre
+  // barres
   &__bar {
     width: .75rem;
     height: 100%;
