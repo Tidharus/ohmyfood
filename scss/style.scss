@@ -65,11 +65,19 @@ $anim-delay: 100ms;
 
 body {
   margin: 0;
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;  
 }
 
 main {
   display: flex;
   flex-direction: column;
+  flex: 1;  
+}
+
+main > :last-child {
+flex: 1;
 }
 
 /*VISUALLY HIDDEN du site */
